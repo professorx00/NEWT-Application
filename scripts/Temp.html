@@ -1,23 +1,64 @@
 <!DOCTYPE html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-        <div class="container" id="Testdata">
-            <span id="data"></span>
+    <link rel="stylesheet" href="teststyle.css">
+</head>
+
+<body>
+
+    <div class="container" id="loginPage">
+        <div class="row">
+            <div class="col-md-2"><span id="error">Error Message Here</span></div>
+            <div class="col-md-8 text-center">
+                <div class="formcontainer">
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email: </label>
+                            <input type="email" id="email" placeholder="E-mail Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password: </label>
+                            <input type="password" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="login">Login</button>
+                            <button class="btn btn-primary" id="create">Create Account</button>
+                            <button class="btn btn-primary" id="forgot">Forgot Password</button>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-md-12 hide" id="passwordRest">
+                            <form>
+                                <label for="emailPass">Please enter your email:</label>
+                                <input type="email" id="emailPass">
+                                <button class="btn btn-primary" id="passSend">Send Password Reset Email</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-        
-        <script src="productSearch.js"></script>
-    </body>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="loginCode.js"></script>
+</body>
+
 </html>
