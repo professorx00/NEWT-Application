@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = findPlaceURL; // site that doesn’t send Access-Control-*
+    const url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=43.09065,-70.80009&radius=1500&type=supermarket&key=AIzaSyDeQ8rVGviT9v6Yqt7Ijg_5bHYFJxni1kU"; // site that doesn’t send Access-Control-*
     fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
         .then(response => response.text())
         .then(contents => console.log(contents))
