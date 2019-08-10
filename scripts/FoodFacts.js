@@ -11,7 +11,18 @@ $(document).ready(function () {
             .then(function (response) {
 
                 let foodFact = response.text;
-                console.log(foodFact);
+                
+                let foodFactDiv = $("<div>")
+                
+                let p = $("<p>").text("Food Fact : " + foodFact);
+
+                foodFactDiv.append(p);
+
+
+                $("#foodFactDiv").append(foodFactDiv);
+                
+
+                
 
 
             });
