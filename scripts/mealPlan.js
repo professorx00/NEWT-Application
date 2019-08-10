@@ -19,6 +19,17 @@ $(document).ready(function () {
             .then(function (response) {
 
                 console.log(response);
+
+                let mealChoiceOne = response.meals[0];
+                let mealChoiceTwo = response.meals[1];
+                let mealChoiceThree = response.meals[2];
+                let mealNutrients = response.nutrients;
+
+                console.log(mealChoiceOne);
+                console.log(mealChoiceTwo);
+                console.log(mealChoiceThree);
+
+                console.log(mealNutrients);
                 
 
                 
