@@ -18,7 +18,6 @@ $(document).ready(function () {
         })
             .then(function (response) {
 
-                console.log(response); 
 
                 let mealsCalories = response.nutrients.calories;
                 let mealsCarbs = response.nutrients.carbohydrates;
@@ -29,12 +28,32 @@ $(document).ready(function () {
                 let mealChoiceOneId = response.meals[0].id;
                 let mealChoiceOneServings = response.meals[0].servings;
                 let mealChoiceOneTitle = response.meals[0].title;
+
+                let mealChoiceTwoTime = response.meals[1].readyInMinutes;
+                let mealChoiceTwoId = response.meals[1].id;
+                let mealChoiceTwoServings = response.meals[1].servings;
+                let mealChoiceTwoTitle = response.meals[1].title;
+
+                let mealChoiceThreeTime = response.meals[2].readyInMinutes;
+                let mealChoiceThreeId = response.meals[2].id;
+                let mealChoiceThreeServings = response.meals[2].servings;
+                let mealChoiceThreeTitle = response.meals[2].title;
                 
 
-                console.log("Title: " + mealChoiceOneTitle);
+                console.log("Meal One: " + mealChoiceOneTitle);
                 console.log("Id : " + mealChoiceOneId);
                 console.log("Minutes to make : " + mealChoiceOneTime);
                 console.log("Servings : " + mealChoiceOneServings);
+
+                console.log("Meal Two: " + mealChoiceTwoTitle);
+                console.log("Id : " + mealChoiceTwoId);
+                console.log("Minutes to make : " + mealChoiceTwoTime);
+                console.log("Servings : " + mealChoiceTwoServings);
+
+                console.log("Meal three: " + mealChoiceThreeTitle);
+                console.log("Id : " + mealChoiceThreeId);
+                console.log("Minutes to make : " + mealChoiceThreeTime);
+                console.log("Servings : " + mealChoiceThreeServings);
 
                 console.log("Total Calories for the Day : " + mealsCalories);
                 console.log("Total Carbs for the Day : " + mealsCarbs);
