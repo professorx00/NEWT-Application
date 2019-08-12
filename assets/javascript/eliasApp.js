@@ -22,10 +22,6 @@ $(document).ready(function () {
                     "format": "upc_reader",
                     "config": {}
                 },
-                // {
-                //     "format": "code_128_reader",
-                //     "config": {}
-                // }
             ]
         },
         locate: true
