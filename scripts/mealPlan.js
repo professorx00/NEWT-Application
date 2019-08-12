@@ -1,11 +1,18 @@
 $(document).ready(function () {
 
+    function resetMealPlan () {
+        $("Diet").val('');
+        $("#timeFrame").val('');
+        $("#targetCalories").val('');
+        $("#exclude").val('');
+    };
+
     function getMealPlan() {
 
-        let diet = "vegetarian"
-        let timeFrame = "day"
-        let targetCalories = "2000"
-        let exclude = "olives"
+        let diet = $("#Diet option:selected").text();
+        let timeFrame = $("#timeFrame option:selected").text();
+        let targetCalories = $("#targetCalories").val();
+        let exclude = $("#exclude").val();
 
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
         "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
@@ -67,8 +74,16 @@ $(document).ready(function () {
 
             });
 
-    };
+    $("#mealPlanSearchBtn").on("click", function(){
+        
+        getMealPlan();
+        resetMealPlan();
 
-    getMealPlan();
+    });
+
+
+    // }; .then(function(){
+
+    // })
 
 });
