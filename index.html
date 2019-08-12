@@ -7,6 +7,8 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -27,7 +29,7 @@
                         <div class="card border-dark mb-3" style="max-width: 18rem;">
                             <div class="card-header">Grocery List</div>
                             <div class="card-body text-dark">
-                                <ul>
+                                <ul id="gList">
                                     <li> item </li>
                                     <li> item </li>
                                     <li> item </li>
@@ -84,8 +86,8 @@
 
 
             <!-- container for product search-->
-            <!--
-            <div class="col-lg-8" id="foodFacts" class="row">
+
+            <div class="col-lg-8" id="productSearch" class="row">
                 <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black">
                     <div class="container">
                         <h1 class="text-center"> Product Search </h1>
@@ -109,24 +111,24 @@
                                     </div>
                                 </div>
                                 <br>
-                                <button type="submit" class="btn btn-dark" id="searchBtn"> Search </button>
+                                <button type="submit" class="btn btn-dark" id="productSearchBtn"> Search </button>
                             </form>
                         </div>
                     </div>
                     <br>
                     <div class="container">
                         <h1 class="text-center"> Product Search Results: </h1>
-                        <div id=searchResults>
-                            
+                        <div id="prodSearchResults">
+
                         </div>
                     </div>
                 </div>
             </div>
 
-        -->
+
 
             <!-- container for meal plan-->
-            <div class="col-lg-8" id="foodFacts" class="row">
+            <!-- <div class="col-lg-8" id="mealPlans" class="row">
                 <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black">
                     <div class="container">
                         <h1 class="text-center"> Meal Plan </h1>
@@ -170,19 +172,19 @@
                                 </div>
 
 
-                                <button type="submit" class="btn btn-dark" id="searchBtn"> Search </button>
+                                <button type="submit" class="btn btn-dark" id="mealPlanSearchBtn"> Search </button>
                             </form>
                         </div>
                     </div>
                     <br>
                     <div class="container">
                         <h1 class="text-center"> Meal Plan Results: </h1>
-                        <div id=searchResults>
+                        <div id=mealPlanSearchResults>
 
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -195,7 +197,7 @@
 
 
 
-
+    <script src="scripts/productSearch.js"></script>
 </body>
 
 </html>
