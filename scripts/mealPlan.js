@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     function resetMealPlan () {
         $("Diet").val('');
         $("#timeFrame").val('');
@@ -74,13 +75,17 @@ $(document).ready(function () {
 
             });
 
+    };
+
     $("#mealPlanSearchBtn").on("click", function(){
         
+
         getMealPlan();
+
         resetMealPlan();
+        
 
     });
 
-    };
 
 });
