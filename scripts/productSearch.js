@@ -22,7 +22,6 @@ btn.on("click",(e)=>{
     console.log("clicked")
     e.preventDefault();
     item=product.val()
-    console.log(item)
     queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&apiKey=${apiKey}`
 
 
@@ -31,13 +30,11 @@ btn.on("click",(e)=>{
     }).then(function (apiData) {
     
         apiResults = apiData.products
-        console.log(apiResults)
     
         apiResults.forEach(element => {
             productIds.push(element.id);
             // console.log(productId)
         });
-        console.log(productIds)
     }).then(function(promise){
     
         productIds.forEach(element=>{
@@ -45,20 +42,22 @@ btn.on("click",(e)=>{
             queryProdInfo = `https://api.spoonacular.com/food/products/${productID}?${productID}&apiKey=${apiKey2}`
     
             $.get(queryProdInfo, function () {}).then(function(data){
-                console.log(results)
+                // new Product Div with title,and ingrident
                 docNewDiv = $("<div>").attr("data-id", data.id).append($("<h1>").text(data.title)).append($("<p>").text(data.ingredientList))
-                console.log(docNewDiv)
+                //nutrition List
+                docProductBtn =$("<button>").addClass("productBtn")
+
                 docNutrition = $("<ul>")
-                console.log(data.nutrition.calories)
+                
                 docCalories = $("<li>").text(`Calories: ${data.nutrition.calories}`)
                 docCarbs = $("<li>").text(`Carbs: ${data.nutrition.carbs}`)
                 docFat = $("<li>").text(`Fat: ${data.nutrition.fat}`)
                 docProtein = $("<li>").text(`Protein: ${data.nutrition.protein}`)
-
+                // appending list to nutriention list
                 docNutrition.append(docCalories,docCarbs,docFat,docProtein)
-                console.log(docNutrition)
-                docNewDiv.append(docNutrition)
-
+                //Appending  nurtiention list to div
+                docNewDiv.append(docNutrition, docProductBtn)
+                //append to page
                 results.append(docNewDiv)
 
                 productData[data.id] = {
@@ -71,6 +70,6 @@ btn.on("click",(e)=>{
             })
         })
     }).then(()=>{
-        console.log(productData)
+        //
     })
 });
