@@ -57,65 +57,79 @@ btnLogOut.on("click", e => {
   firebase.auth().signOut();
 });
 
+validEmail = true;
+
 forgotPass.on("click", e => {
   e.preventDefault();
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
   console.log("forgot Pass")
   userLogin.addClass("hide");
   $("#title").text("Reset Your Password");
   $("#passwordRest").removeClass("hide");
   $("#passSend").on("click", e => {
+    e.preventDefault();
     let resetemail = $("#emailPass").val().trim();
     let resetPromise = firebase.auth().sendPasswordResetEmail(resetemail)
     resetPromise.catch(e => {
-      console.log(e)
+      console.log("catching error of password reset")
       console.log(e.code)
       if (e.code == "auth/user-not-found") {
+        console.log("error not vaild email")
         error.text("Please enter valid email address")
+        error.removeClass("hide")
+        validEmail = false;
       }
       else{
         console.log(e.message)
       }
-    }).then(()=>{
+    }).then(e=>{
+      if(validEmail){
+        $('#myModal').modal('hide')
+        console.log("Maybe she loves me")
         error.text("Please check your email for the reset password email.")
         error.removeClass("hide")
         $("#passwordRest").addClass("hide");
         userLogin.removeClass("hide")
-    });
+      }
+      else{
+        validEmail =false;
+        return false;
+      }
+
+      validEmail=true;
+    })
   })
 })
 
 function StayLogIn(){
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
   .then(function() {
-    // Existing and future Auth states are now persisted in the current
-    // session only. Closing the window would clear any existing state even
-    // if a user forgets to sign out.
-    // ...
-    // New sign-in will be persisted with session persistence.
     return firebase.auth().signInWithEmailAndPassword(email, password);
   })
   .catch(function(error) {
-    // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    console.log(errorCode,errorMessage)
   });
 }
 
-firebase.auth().onAuthStateChanged(firebaseUser => {
+// firebase.auth().onAuthStateChanged(firebaseUser => {
   
-  if (firebaseUser) {
-    btnLogOut.removeClass("hide");
-    btnLogIn.addClass("hide");
-    btnCreate.addClass("hide")
-    error.addClass("hide");
-    StayLogIn();
-    window.location.href ="./trains.html"
-  }
-  else {
-    btnLogOut.addClass("hide");
-    btnLogIn.removeClass("hide");
-    btnCreate.removeClass("hide");
-    error.addClass("hide");
-    console.log("Logged Out");
-  }
-});
+//   if (firebaseUser) {
+//     btnLogOut.removeClass("hide");
+//     btnLogIn.addClass("hide");
+//     btnCreate.addClass("hide")
+//     error.addClass("hide");
+//     StayLogIn();
+//     window.location.href ="./trains.html"
+//   }
+//   else {
+//     btnLogOut.addClass("hide");
+//     btnLogIn.removeClass("hide");
+//     btnCreate.removeClass("hide");
+//     error.addClass("hide");
+//     console.log("Logged Out");
+//   }
+// });
