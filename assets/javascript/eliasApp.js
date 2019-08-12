@@ -89,7 +89,7 @@ $(document).ready(function () {
         console.log("reached onDetected");
         // alert(result.codeResult.code);
         if (result.codeResult.code) {
-            $('#scanner_input').val(result.codeResult.code);
+            lookUpProduct(result.codeResult.code);
             Quagga.stop();
             setTimeout(function () { $('#livestream_scanner').modal('hide'); }, 1000);
         }
@@ -114,6 +114,10 @@ $(document).ready(function () {
     //TODO: Grab Fields from Index
     //TODO: Pushback data
 
+    function lookUpProduct(UPC) {
+
+    }
+
     const apiKey = `3fa48d8832ec49088f593fab542b7eea`;
 
     let productIds = [];
@@ -125,9 +129,6 @@ $(document).ready(function () {
     const btn = $("#productSearchBtn");
     const glist = $("#gList")
     const results = $("#prodSearchResults")
-
-
-
 
     btn.on("click", (e) => {
         console.log("clicked")
