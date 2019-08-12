@@ -1,5 +1,17 @@
 $(document).ready(function () {
 
+    const apiKey = `3fa48d8832ec49088f593fab542b7eea`;
+
+    let productIds = [];
+    let productData = {}
+
+    //document Jquery Items:
+
+    const upc = "";
+    const btn = $("#productSearchBtn");
+    const glist = $("#gList")
+    const results = $("#prodSearchResults")
+
     // Create the QuaggaJS config object for the live stream
     let liveStreamConfig = {
         inputStream: {
@@ -89,8 +101,8 @@ $(document).ready(function () {
         console.log("reached onDetected");
         // alert(result.codeResult.code);
         if (result.codeResult.code) {
-            lookUpProduct(result.codeResult.code);
             Quagga.stop();
+            lookUpUPC(result.codeResult.code);
             setTimeout(function () { $('#livestream_scanner').modal('hide'); }, 1000);
         }
     });
@@ -114,76 +126,44 @@ $(document).ready(function () {
     //TODO: Grab Fields from Index
     //TODO: Pushback data
 
-    function lookUpProduct(UPC) {
 
-    }
+    function lookUpUPC(upc) {
 
-    const apiKey = `3fa48d8832ec49088f593fab542b7eea`;
-
-    let productIds = [];
-    let productData = {}
-
-    //document Jquery Items:
-
-    const product = $("#query");
-    const btn = $("#productSearchBtn");
-    const glist = $("#gList")
-    const results = $("#prodSearchResults")
-
-    btn.on("click", (e) => {
-        console.log("clicked")
-        e.preventDefault();
-        item = product.val()
-        console.log(item)
-        queryProduct = `https://api.spoonacular.com/food/products/upc/{upc}`
-
+        queryProduct = `https://api.spoonacular.com/food/products/upc/${upc}?&apiKey=${apiKey}`;
 
         $.get(queryProduct, function () {
 
-        }).then(function (apiData) {
-
-            apiResults = apiData.products
-            console.log(apiResults)
-
-            apiResults.forEach(element => {
-                productIds.push(element.id);
-                // console.log(productId)
-            });
-            console.log(productIds)
         }).then(function (promise) {
 
-            productIds.forEach(element => {
-                let productID = element;
-                queryProdInfo = `https://api.spoonacular.com/food/products/${productID}?${productID}&apiKey=${apiKey2}`
+            element => {
+                let packagedProduct = element;
 
-                $.get(queryProdInfo, function () { }).then(function (data) {
-                    console.log(results)
-                    docNewDiv = $("<div>").attr("data-id", data.id).append($("<h1>").text(data.title)).append($("<p>").text(data.ingredientList))
-                    console.log(docNewDiv)
-                    docNutrition = $("<ul>")
-                    console.log(data.nutrition.calories)
-                    docCalories = $("<li>").text(`Calories: ${data.nutrition.calories}`)
-                    docCarbs = $("<li>").text(`Carbs: ${data.nutrition.carbs}`)
-                    docFat = $("<li>").text(`Fat: ${data.nutrition.fat}`)
-                    docProtein = $("<li>").text(`Protein: ${data.nutrition.protein}`)
+                console.log(packagedProduct)
+                docNewDiv = $("<div>").attr("data-id", packagedProduct.id).append($("<h1>").text(packagedProduct.title)).append($("<p>").text(packagedProduct.ingredientList))
+                console.log(docNewDiv)
+                docNutrition = $("<ul>")
+                console.log(packagedProduct.nutrition.calories)
+                docCalories = $("<li>").text(`Calories: ${packagedProduct.nutrition.calories}`)
+                docCarbs = $("<li>").text(`Carbs: ${packagedProduct.nutrition.carbs}`)
+                docFat = $("<li>").text(`Fat: ${packagedProduct.nutrition.fat}`)
+                docProtein = $("<li>").text(`Protein: ${packagedProduct.nutrition.protein}`)
 
-                    docNutrition.append(docCalories, docCarbs, docFat, docProtein)
-                    console.log(docNutrition)
-                    docNewDiv.append(docNutrition)
+                docNutrition.append(docCalories, docCarbs, docFat, docProtein)
+                console.log(docNutrition)
+                docNewDiv.append(docNutrition)
 
-                    results.append(docNewDiv)
+                results.append(docNewDiv)
 
-                    productData[data.id] = {
-                        id: data.id,
-                        title: data.title,
-                        ingriendents: data.ingredientList,
-                        nutrition: data.nutrition,
-                        badges: data.badges
-                    }
-                })
-            })
+                productData[packagedProduct.id] = {
+                    id: packagedProduct.id,
+                    title: packagedProduct.title,
+                    ingriendents: packagedProduct.ingredientList,
+                    nutrition: packagedProduct.nutrition,
+                    badges: packagedProduct.badges
+                }
+            }
         }).then(() => {
             console.log(productData)
         })
-    });
+    };
 })
