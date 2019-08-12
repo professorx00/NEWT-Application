@@ -1,5 +1,5 @@
 .drawingBuffer {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  position: relative;
+  top: -480px;
+  left: 0;
+}
