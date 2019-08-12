@@ -3,12 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Meal Planner</title>
+    <title>Newt Meal Planner</title>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -20,7 +23,7 @@
             <div class="col-lg-4" id="sideNavBar">
                 <div class="jumbotron jumbotron-fluid" style="background-color: #DCDCDC; color: black">
                     <div class="container">
-                        <h1 class="text-center"> Meal Planner </h1>
+                        <h1 class="text-center"> Newt </h1>
                         <br>
                         <p class="text-center"> Meal Plan</p>
                         <p class="text-center"> Product Search</p>
@@ -96,9 +99,18 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <form>
-                                <div class="form-group">
-                                    <label for="">Product</label>
-                                    <input type="text" class="form-control" id="query">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="">Product</label>
+                                        <input type="text" class="form-control" id="query">
+                                    </div>
+                                    <div class="col">
+                                            <label for="">Barcode Scanner</label>
+                                        <button class="btn btn-dark" type="button" data-toggle="modal" id="barcodeBtn"
+                                            data-target="#livestream_scanner">
+                                            <i class="fa fa-barcode"></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
