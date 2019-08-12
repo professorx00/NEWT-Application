@@ -8,3 +8,10 @@
     margin-bottom: 40%;
 
 }
+#passwordRest{
+    margin-top:40%;
+    margin-bottom: 40%;
+}
+.hide{
+    display: none;
+}
