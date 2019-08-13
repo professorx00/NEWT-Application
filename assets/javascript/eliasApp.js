@@ -7,7 +7,6 @@ $(document).ready(function () {
 
     //document Jquery Items:
 
-    const upc = "";
     const btn = $("#productSearchBtn");
     const glist = $("#gList")
     const results = $("#prodSearchResults")
@@ -130,40 +129,39 @@ $(document).ready(function () {
     function lookUpUPC(upc) {
 
         queryProduct = `https://api.spoonacular.com/food/products/upc/${upc}?&apiKey=${apiKey}`;
+        console.log(queryProduct);
 
         $.get(queryProduct, function () {
 
-        }).then(function (promise) {
+        }).then((input) => {
 
-            element => {
-                let packagedProduct = element;
+            let packagedProduct = input;
+            console.log(packagedProduct);
 
-                console.log(packagedProduct)
-                docNewDiv = $("<div>").attr("data-id", packagedProduct.id).append($("<h1>").text(packagedProduct.title)).append($("<p>").text(packagedProduct.ingredientList))
-                console.log(docNewDiv)
-                docNutrition = $("<ul>")
-                console.log(packagedProduct.nutrition.calories)
-                docCalories = $("<li>").text(`Calories: ${packagedProduct.nutrition.calories}`)
-                docCarbs = $("<li>").text(`Carbs: ${packagedProduct.nutrition.carbs}`)
-                docFat = $("<li>").text(`Fat: ${packagedProduct.nutrition.fat}`)
-                docProtein = $("<li>").text(`Protein: ${packagedProduct.nutrition.protein}`)
+            console.log(packagedProduct)
+            docNewDiv = $("<div>").attr("data-id", packagedProduct.id).append($("<h1>").text(packagedProduct.title)).append($("<p>").text(packagedProduct.ingredientList))
+            console.log(docNewDiv)
+            docNutrition = $("<ul>")
+            console.log(packagedProduct.nutrition.calories)
+            docCalories = $("<li>").text(`Calories: ${packagedProduct.nutrition.calories}`)
+            docCarbs = $("<li>").text(`Carbs: ${packagedProduct.nutrition.carbs}`)
+            docFat = $("<li>").text(`Fat: ${packagedProduct.nutrition.fat}`)
+            docProtein = $("<li>").text(`Protein: ${packagedProduct.nutrition.protein}`)
 
-                docNutrition.append(docCalories, docCarbs, docFat, docProtein)
-                console.log(docNutrition)
-                docNewDiv.append(docNutrition)
+            docNutrition.append(docCalories, docCarbs, docFat, docProtein)
+            console.log(docNutrition)
+            docNewDiv.append(docNutrition)
 
-                results.append(docNewDiv)
+            results.append(docNewDiv)
 
-                productData[packagedProduct.id] = {
-                    id: packagedProduct.id,
-                    title: packagedProduct.title,
-                    ingriendents: packagedProduct.ingredientList,
-                    nutrition: packagedProduct.nutrition,
-                    badges: packagedProduct.badges
-                }
+            productData[packagedProduct.id] = {
+                id: packagedProduct.id,
+                title: packagedProduct.title,
+                ingriendents: packagedProduct.ingredientList,
+                nutrition: packagedProduct.nutrition,
+                badges: packagedProduct.badges
             }
-        }).then(() => {
-            console.log(productData)
-        })
+        }
+        )
     };
 })
