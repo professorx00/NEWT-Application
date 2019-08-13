@@ -8,7 +8,7 @@ $(document).ready(function () {
         $("#exclude").val('');
     };
 
-    function getMealPlan() {
+    function getMealPlanDay() {
 
         let diet = $("#Diet option:selected").text();
         let timeFrame = $("#timeFrame").val();
@@ -77,12 +77,48 @@ $(document).ready(function () {
 
     };
 
-    $("#mealPlanSearchBtn").on("click", function(){
+    function getMealPlanWeek() {
+
+        let diet = $("#Diet option:selected").text();
+        let timeFrame = $("#timeFrame").val();
+        let targetCalories = $("#targetCalories").val() || "2000";
+        let exclude = $("#exclude").val();
+        var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
+        "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
         
 
-        getMealPlan();
 
-        resetMealPlan();
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            .then(function (response) {
+
+
+                console.log(response);
+
+                
+
+                
+
+
+            });
+
+    };
+
+    $("#mealPlanSearchBtn").on("click", function(){
+        
+        if ($("#timeFrame").val() === "Week") {
+
+            getMealPlanWeek();
+
+        } else  {
+            
+            getMealPlanDay();
+        }
+        
+
+        
         
 
     });
