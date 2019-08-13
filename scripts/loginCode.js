@@ -115,21 +115,21 @@ function StayLogIn(){
   });
 }
 
-// firebase.auth().onAuthStateChanged(firebaseUser => {
+firebase.auth().onAuthStateChanged(firebaseUser => {
   
-//   if (firebaseUser) {
-//     btnLogOut.removeClass("hide");
-//     btnLogIn.addClass("hide");
-//     btnCreate.addClass("hide")
-//     error.addClass("hide");
-//     StayLogIn();
-//     window.location.href ="./trains.html"
-//   }
-//   else {
-//     btnLogOut.addClass("hide");
-//     btnLogIn.removeClass("hide");
-//     btnCreate.removeClass("hide");
-//     error.addClass("hide");
-//     console.log("Logged Out");
-//   }
-// });
+  if (firebaseUser) {
+    btnLogOut.removeClass("hide");
+    btnLogIn.addClass("hide");
+    btnCreate.addClass("hide")
+    error.addClass("hide");
+    StayLogIn();
+    window.location.href ="./main.html"
+  }
+  else {
+    btnLogOut.addClass("hide");
+    btnLogIn.removeClass("hide");
+    btnCreate.removeClass("hide");
+    error.addClass("hide");
+    console.log("Logged Out");
+  }
+});
