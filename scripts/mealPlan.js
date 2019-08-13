@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    function resetMealPlan () {
+    function resetMealPlan() {
         $("Diet").val('');
         $("#timeFrame").val('');
         $("#targetCalories").val('');
@@ -15,8 +15,8 @@ $(document).ready(function () {
         let targetCalories = $("#targetCalories").val() || "2000";
         let exclude = $("#exclude").val();
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-        "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
-        
+            "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
+
 
 
         $.ajax({
@@ -45,7 +45,7 @@ $(document).ready(function () {
                 let mealChoiceThreeId = response.meals[2].id;
                 let mealChoiceThreeServings = response.meals[2].servings;
                 let mealChoiceThreeTitle = response.meals[2].title;
-                
+
 
                 console.log("Meal One: " + mealChoiceOneTitle);
                 console.log("Id : " + mealChoiceOneId);
@@ -66,11 +66,11 @@ $(document).ready(function () {
                 console.log("Total Carbs for the Day : " + mealsCarbs);
                 console.log("Total Fats for the Day : " + mealsFat);
                 console.log("Total Proteins for the Day : " + mealsProtein);
-                
 
-                
 
-                
+
+
+
 
 
             });
@@ -84,8 +84,8 @@ $(document).ready(function () {
         let targetCalories = $("#targetCalories").val() || "2000";
         let exclude = $("#exclude").val();
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-        "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
-        
+            "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
+
 
 
         $.ajax({
@@ -97,29 +97,32 @@ $(document).ready(function () {
 
                 console.log(response);
 
-                
 
-                
+
+
 
 
             });
 
     };
 
-    $("#mealPlanSearchBtn").on("click", function(){
-        
+    $("#mealPlanSearchBtn").on("click", function () {
+
         if ($("#timeFrame").val() === "Week") {
 
             getMealPlanWeek();
+            resetMealPlan();
 
-        } else  {
-            
+        } else {
+
             getMealPlanDay();
-        }
-        
+            resetMealPlan();
 
-        
-        
+        }
+
+
+
+
 
     });
 
