@@ -12,41 +12,49 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!--fontawesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--linking to mealPlan JS-->
-    <script type="text/javascript" src="./scripts/mealPlan.js"></script>
+    <!-- bootstrap js cdn-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <!--barcode link? *elias*-->
+    <script defer async src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+
 </head>
 
 <body>
 
-
     <!--left container-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4" id="sideNavBar">
-                <div class="jumbotron jumbotron-fluid" style="background-color: #DCDCDC; color: black">
+            <div class="col-lg-3" id="sideNavBar" style="text-align: center">
+                <div class="jumbotron jumbotron-fluid" style="background-color: #DCDCDC; color: black; height: 100vh">
                     <div class="container">
+                        <img src="images/placehold.png" alt="logo" height="300px">
+                        <br>
+                        <br>
                         <h1 class="text-center"> Newt </h1>
                         <br>
-                        <p class="text-center"> Meal Plan</p>
-                        <p class="text-center"> Product Search</p>
+                        <button type="button" class="btn btn-dark btn-lg btn-block">Meal Plan</button>
+                        <button type="button" class="btn btn-dark btn-lg btn-block">Product Search</button>
                         <br>
                         <br>
-                        <div class="card border-dark mb-3" style="max-width: 18rem;">
+                        <a href=""> Username <span></span></a>
+                        <br>
+                        <a href=""> Log out <span></span></a>
+                        <br><br><br>
+
+                        <div class="card border-dark mb-3 text-center" style="max-width: 180rem;">
                             <div class="card-header">Grocery List</div>
                             <div class="card-body text-dark">
-                                <ul id="gList">
-                                    <li> item </li>
-                                    <li> item </li>
-                                    <li> item </li>
+                                <ul id="gList" style="list-style-type:none;">
+                                    <li> </li>
+                                    <li> </li>
+                                    <li> </li>
                                     <div>
                                         <!--empty div store array-->
                                     </div>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col">
-                            <label for="">Username</label>
-                            <input type="text" class="form-control" id="usernameInput">
                         </div>
                     </div>
                 </div>
@@ -56,8 +64,8 @@
 
             <!-- home page side with food facts container-->
             <!-- commented out
-            <div class="col-lg-8" id="foodFacts" class="row">
-                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black">
+            <div class="col-lg-9" id="foodFacts" class="row">
+                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black; height: 100vh">
                     <div class="container">
                         <h1 class="text-center"> Food Facts </h1>
                     </div>
@@ -91,29 +99,31 @@
 
 
             <!-- container for product search-->
+            <!-- commented out
 
-            <!-- <div class="col-lg-8" id="productSearch" class="row">
-                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black">
+            <div class="col-lg-9" id="productSearch" class="row">
+                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black; height: 100vh">
                     <div class="container">
                         <h1 class="text-center"> Product Search </h1>
                     </div>
                     <br>
                     <div class="card mb-4">
                         <div class="card-body">
-                            <form>
+                            <form id="productForm">
                                 <div class="row">
                                     <div class="col">
                                         <label for="">Product</label>
                                         <input type="text" class="form-control" id="query">
                                     </div>
                                     <div class="col">
-                                            <label for="">Barcode Scanner</label>
+                                            <br>
                                         <button class="btn btn-dark btn-lg" type="button" data-toggle="modal" id="barcodeBtn"
                                             data-target="#livestream_scanner">
                                             <i class="fa fa-barcode"></i>
                                         </button>
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row">
                                     <div class="col">
                                         <label for="">Max Calories</label>
@@ -137,13 +147,14 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
+        -->
 
 
+            <!-- container for meal plan-->
 
-            <!-- container for meal plan--> 
-            <div class="col-lg-8" id="mealPlans" class="row">
-                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black">
+            <div class="col-lg-9" id="mealPlans" class="row">
+                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black; height: 100vh">
                     <div class="container">
                         <h1 class="text-center"> Meal Plan </h1>
                     </div>
@@ -161,7 +172,52 @@
                                 <div class="row">
                                     <div class="col">
                                         <label for="">Target Calories</label>
-                                        <input type="number" class="form-control" id="targetCalories">
+                                        <select class="form-control" id="targetCalories">
+                                            <option>700</option>
+                                            <option>800</option>
+                                            <option>900</option>
+                                            <option>1000</option>
+                                            <option>1100</option>
+                                            <option>1200</option>
+                                            <option>1300</option>
+                                            <option>1400</option>
+                                            <option>1500</option>
+                                            <option>1600</option>
+                                            <option>1700</option>
+                                            <option>1800</option>
+                                            <option>1900</option>
+                                            <option>2000</option>
+                                            <option>2100</option>
+                                            <option>2200</option>
+                                            <option>2300</option>
+                                            <option>2400</option>
+                                            <option>2500</option>
+                                            <option>2600</option>
+                                            <option>2700</option>
+                                            <option>2800</option>
+                                            <option>2900</option>
+                                            <option>3000</option>
+                                            <option>3100</option>
+                                            <option>3200</option>
+                                            <option>3300</option>
+                                            <option>3400</option>
+                                            <option>3500</option>
+                                            <option>3600</option>
+                                            <option>3700</option>
+                                            <option>3800</option>
+                                            <option>3900</option>
+                                            <option>4000</option>
+                                            <option>4100</option>
+                                            <option>4200</option>
+                                            <option>4300</option>
+                                            <option>4400</option>
+                                            <option>4500</option>
+                                            <option>4600</option>
+                                            <option>4700</option>
+                                            <option>4800</option>
+                                            <option>4900</option>
+                                            <option>5000</option>
+                                        </select>
                                     </div>
                                     <div class="col">
                                         <label for="">Select Diet</label>
@@ -175,11 +231,11 @@
                                             <option>Pescetarian</option>
                                             <option>Paleo</option>
                                             <option>Primal</option>
-                                            <option>Whole30</option>
+                                            <option>WholeThirty</option>
                                         </select>
                                     </div>
                                 </div>
-
+                                <br>
                                 <div class="form-group">
                                     <label for="">Exclude (seperate by a comma)</label>
                                     <textarea class="form-control" id="exclude" rows="3"></textarea>
@@ -198,7 +254,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
 
 
 
@@ -209,9 +265,41 @@
 
 
 
+    <!--modal-->
+    <div class="modal fade" id="livestream_scanner" tabindex="-1" role="dialog" aria-labelledby="barcode input">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Barcode Scanner</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="position: static">
+                    <div id="interactive" class="viewport">
+                        <video class="videoCamera" autoplay="true" preload="auto" src="" muted="true"
+                            playsinline="true"></video>
+                        <canvas class="drawingBuffer"></canvas>
+                    </div>
+                    <div class="error"></div>
+                </div>
+                <div class="modal-footer">
+                    <label class="btn btn-default pull-left">
+                        <i class="fa fa-camera"></i> Use camera app
+                        <input type="file" accept="image/*;capture=camera" capture="camera" class="hidden" />
+                    </label>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
+    <!--javascrip -->
     <script src="scripts/productSearch.js"></script>
+    <!--linking to mealPlan JS-->
+    <script type="text/javascript" src="./scripts/mealPlan.js"></script>
+
 </body>
 
 </html>
