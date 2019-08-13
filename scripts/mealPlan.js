@@ -11,14 +11,13 @@ $(document).ready(function () {
     function getMealPlan() {
 
         let diet = $("#Diet option:selected").text();
-        let timeFrame = $("#timeFrame option:selected").text();
-        let targetCalories = $("#targetCalories").val();
+        let timeFrame = $("#timeFrame").val();
+        let targetCalories = $("#targetCalories").val() || "2000";
         let exclude = $("#exclude").val();
-
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
         "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
         
-        
+
 
         $.ajax({
             url: queryURL,
@@ -68,6 +67,7 @@ $(document).ready(function () {
                 console.log("Total Fats for the Day : " + mealsFat);
                 console.log("Total Proteins for the Day : " + mealsProtein);
                 
+
                 
 
                 
