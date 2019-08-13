@@ -8,13 +8,14 @@ const apiKey2 = '9b0c0f062fd744b29e02ffbea812b474 ';
 let productIds = [];
 let productData = {}
 
-//document Jquery Items:
 
 const product = $("#query");
 const btn = $("#productSearchBtn");
 const glist = $("#gList")
 const results = $("#prodSearchResults")
 const pForm = $("#productForm");
+const minCal = $("#minCalories");
+const maxCal = $("#maxCalories");
 
 
 btn.on("click", (e) => {
@@ -23,7 +24,23 @@ btn.on("click", (e) => {
     console.log("clicked")
     e.preventDefault();
     item = product.val()
-    queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&apiKey=${apiKey}`
+    minCalories = minCal.val().trim();
+    maxCalories = maxCal.val().trim();
+
+    if(minCalories && !maxCalories){
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&minCalories=${minCalories}&apiKey=${apiKey}`
+    }
+    else if(!minCalories && maxCalories){
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&maxCalories=${maxCalories}&apiKey=${apiKey}`
+    }
+    else if(minCalories && maxCalories){
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&maxCalories=${maxCalories}&minCalories=${minCalories}&apiKey=${apiKey}`
+    }
+    else{
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&apiKey=${apiKey}`
+    }
+
+    console.log(queryProduct)    
 
 
     $.get(queryProduct, function () {
@@ -87,6 +104,7 @@ addClick = function (event) {
     const newItem = $("<li>").attr("id", `${id}List`).append($("<button>").addClass("btn btn-dark listItem").attr("data-id", id).text(title));
     glist.append(newItem)
     $(`#${id}`).remove();
+
 }
 
 listItemBtn = function (event) {

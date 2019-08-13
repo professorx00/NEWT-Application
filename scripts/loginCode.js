@@ -9,6 +9,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+fireDatabase = firebase.database();
 
 
 const userLogin = $("#loginForm");
@@ -43,9 +44,16 @@ btnCreate.on("click", e => {
   console.log("creating User")
   //TODO: Check 4 valid email address and Password
   const email = emailInput.val().trim();
+  const fuser = email.split("@")[0];
   const password = passInput.val().trim();
   const auth = firebase.auth()
   const promise = auth.createUserWithEmailAndPassword(email, password);
+  let user = {
+    email: emailInput.val().trim(),
+    list: JSON.stringify({titleList:[]}),
+    idList: JSON.stringify({idList:[]})
+  }
+  fireDatabase.ref("/user").child(fuser).set(user);
   promise.catch(e => {
     error.text(e.message);
     error.removeClass("hide");
@@ -104,8 +112,10 @@ forgotPass.on("click", e => {
 })
 
 function StayLogIn(){
-  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
   .then(function() {
+    email = $(email).val()
+    password = $(password).val()
     return firebase.auth().signInWithEmailAndPassword(email, password);
   })
   .catch(function(error) {
@@ -114,9 +124,12 @@ function StayLogIn(){
     console.log(errorCode,errorMessage)
   });
 }
-
+let list = {};
 firebase.auth().onAuthStateChanged(firebaseUser => {
-  
+  fUser = firebaseUser.email
+  fname=fUser.split("@")
+  user=fname[0];
+  console.log(user)
   if (firebaseUser) {
     btnLogOut.removeClass("hide");
     btnLogIn.addClass("hide");

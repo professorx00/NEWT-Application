@@ -6,3 +6,9 @@ img.logo{
     max-width: 500px;
     width:100%;
 }
+
+canvas.drawingBuffer{
+    position: absolute;
+    top:0;
+    left:0;
+}
