@@ -1,24 +1,23 @@
 $(document).ready(function () {
 
 
-    function resetMealPlan () {
+    function resetMealPlan() {
         $("Diet").val('');
         $("#timeFrame").val('');
         $("#targetCalories").val('');
         $("#exclude").val('');
     };
 
-    function getMealPlan() {
+    function getMealPlanDay() {
 
         let diet = $("#Diet option:selected").text();
-        let timeFrame = $("#timeFrame option:selected").text();
-        let targetCalories = $("#targetCalories").val();
+        let timeFrame = $("#timeFrame").val();
+        let targetCalories = $("#targetCalories").val() || "2000";
         let exclude = $("#exclude").val();
-
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-        "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
-        
-        
+            "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
+
+
 
         $.ajax({
             url: queryURL,
@@ -46,7 +45,7 @@ $(document).ready(function () {
                 let mealChoiceThreeId = response.meals[2].id;
                 let mealChoiceThreeServings = response.meals[2].servings;
                 let mealChoiceThreeTitle = response.meals[2].title;
-                
+
 
                 console.log("Meal One: " + mealChoiceOneTitle);
                 console.log("Id : " + mealChoiceOneId);
@@ -67,23 +66,108 @@ $(document).ready(function () {
                 console.log("Total Carbs for the Day : " + mealsCarbs);
                 console.log("Total Fats for the Day : " + mealsFat);
                 console.log("Total Proteins for the Day : " + mealsProtein);
-                
-                
 
-                
+
+
+
+
 
 
             });
 
     };
 
-    $("#mealPlanSearchBtn").on("click", function(){
-        
+    function getMealPlanWeek() {
 
-        getMealPlan();
+        let diet = $("#Diet option:selected").text();
+        let timeFrame = $("#timeFrame").val();
+        let targetCalories = $("#targetCalories").val() || "2000";
+        let exclude = $("#exclude").val();
+        var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
+            "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
 
-        resetMealPlan();
-        
+
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            .then(function (response) {
+
+
+                let mealPlanTitle = response.name;
+
+                let dayOneMealOneTitle = JSON.parse(response.items[0].value).title;
+                let dayOneMealOneId = JSON.parse(response.items[0].value).id;
+                let dayOneMealTwoTitle = JSON.parse(response.items[1].value).title;
+                let dayOneMealTwoId = JSON.parse(response.items[1].value).id;
+                let dayOneMealThreeTitle = JSON.parse(response.items[2].value).title;
+                let dayOneMealThreeId = JSON.parse(response.items[2].value).id;
+
+                let dayTwoMealOneTitle = JSON.parse(response.items[3].value).title;
+                let dayTwoMealOneId = JSON.parse(response.items[3].value).id;
+                let dayTwoMealTwoTitle = JSON.parse(response.items[4].value).title;
+                let dayTwoMealTwoId = JSON.parse(response.items[4].value).id;
+                let dayTwoMealThreeTitle = JSON.parse(response.items[5].value).title;
+                let dayTwoMealThreeId = JSON.parse(response.items[5].value).id;
+
+                let dayThreeMealOneTitle = JSON.parse(response.items[6].value).title;
+                let dayThreeMealOneId = JSON.parse(response.items[6].value).id;
+                let dayThreeMealTwoTitle = JSON.parse(response.items[7].value).title;
+                let dayThreeMealTwoId = JSON.parse(response.items[7].value).id;
+                let dayThreeMealThreeTitle = JSON.parse(response.items[8].value).title;
+                let dayThreeMealThreeId = JSON.parse(response.items[8].value).id;
+
+                let dayFourMealOneTitle = JSON.parse(response.items[9].value).title;
+                let dayFourMealOneId = JSON.parse(response.items[9].value).id;
+                let dayFourMealTwoTitle = JSON.parse(response.items[10].value).title;
+                let dayFourMealTwoId = JSON.parse(response.items[10].value).id;
+                let dayFourMealThreeTitle = JSON.parse(response.items[11].value).title;
+                let dayFourMealThreeId = JSON.parse(response.items[11].value).id;
+
+                let dayFiveMealOneTitle = JSON.parse(response.items[12].value).title;
+                let dayFiveMealOneId = JSON.parse(response.items[12].value).id;
+                let dayFiveMealTwoTitle = JSON.parse(response.items[13].value).title;
+                let dayFiveMealTwoId = JSON.parse(response.items[13].value).id;
+                let dayFiveMealThreeTitle = JSON.parse(response.items[14].value).title;
+                let dayFiveMealThreeId = JSON.parse(response.items[14].value).id;
+
+                let daySixMealOneTitle = JSON.parse(response.items[15].value).title;
+                let daySixMealOneId = JSON.parse(response.items[15].value).id;
+                let daySixMealTwoTitle = JSON.parse(response.items[16].value).title;
+                let daySixMealTwoId = JSON.parse(response.items[16].value).id;
+                let daySixMealThreeTitle = JSON.parse(response.items[17].value).title;
+                let daySixMealThreeId = JSON.parse(response.items[17].value).id;
+
+                let daySevenMealOneTitle = JSON.parse(response.items[18].value).title;
+                let daySevenMealOneId = JSON.parse(response.items[18].value).id;
+                let daySevenMealTwoTitle = JSON.parse(response.items[19].value).title;
+                let daySevenMealTwoId = JSON.parse(response.items[19].value).id;
+                let daySevenMealThreeTitle = JSON.parse(response.items[20].value).title;
+                let daySevenMealThreeId = JSON.parse(response.items[20].value).id;
+
+                
+            });
+
+    };
+
+    $("#mealPlanSearchBtn").on("click", function () {
+
+        if ($("#timeFrame").val() === "Week") {
+
+            getMealPlanWeek();
+            resetMealPlan();
+
+        } else {
+
+            getMealPlanDay();
+            resetMealPlan();
+
+        }
+
+
+
+
 
     });
 
