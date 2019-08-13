@@ -137,8 +137,13 @@ $(document).ready(function () {
 
             let packagedProduct = input;
             console.log(packagedProduct);
+            if (packagedProduct.status == "failure") {
+                console.log("failed");
+                docNewDiv = $("<div>").attr("data-id", packagedProduct.id).append($("<h1>").text(packagedProduct.message)).append($("<p>").text(packagedProduct.ingredientList))
+                return;
+            }
 
-            console.log(packagedProduct)
+            console.log(packagedProduct);
             docNewDiv = $("<div>").attr("data-id", packagedProduct.id).append($("<h1>").text(packagedProduct.title)).append($("<p>").text(packagedProduct.ingredientList))
             console.log(docNewDiv)
             docNutrition = $("<ul>")
@@ -147,8 +152,9 @@ $(document).ready(function () {
             docCarbs = $("<li>").text(`Carbs: ${packagedProduct.nutrition.carbs}`)
             docFat = $("<li>").text(`Fat: ${packagedProduct.nutrition.fat}`)
             docProtein = $("<li>").text(`Protein: ${packagedProduct.nutrition.protein}`)
+            addButton = $("<button>").addClass("productBtn btn btn-dark").text("add");
 
-            docNutrition.append(docCalories, docCarbs, docFat, docProtein)
+            docNutrition.append(docCalories, docCarbs, docFat, docProtein, addButton)
             console.log(docNutrition)
             docNewDiv.append(docNutrition)
 
@@ -162,6 +168,8 @@ $(document).ready(function () {
                 badges: packagedProduct.badges
             }
         }
-        )
+        ).fail(function (error) {
+            console.log(error);
+        });
     };
 })
