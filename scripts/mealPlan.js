@@ -95,7 +95,7 @@ $(document).ready(function () {
             .then(function (response) {
 
 
-                let MealPlanTitle = response.name;
+                let mealPlanTitle = response.name;
 
                 let dayOneMealOneTitle = JSON.parse(response.items[0].value).title;
                 let dayOneMealOneId = JSON.parse(response.items[0].value).id;
@@ -146,52 +146,36 @@ $(document).ready(function () {
                 let daySevenMealThreeTitle = JSON.parse(response.items[20].value).title;
                 let daySevenMealThreeId = JSON.parse(response.items[20].value).id;
 
-                console.log(MealPlanTitle);
+                $("#mealPlanSearchResults").append(mealPlanTitle);
+                $("#mealPlanSearchResults").append("Day 1 - Meal 1 : " + dayOneMealOneTitle + ", id: " + dayOneMealOneId);
+                $("#mealPlanSearchResults").append("Day 1 - Meal 2 : " + dayOneMealTwoTitle + ", id: " + dayOneMealTwoId);
+                $("#mealPlanSearchResults").append("Day 1 - Meal 3 : " + dayOneMealThreeTitle + ", id: " + dayOneMealThreeId);
 
-                console.log("Day 1 - Meal 1 : " + dayOneMealOneTitle + ", id: " + dayOneMealOneId);
-                console.log("Day 1 - Meal 2 : " + dayOneMealTwoTitle + ", id: " + dayOneMealTwoId);
-                console.log("Day 1 - Meal 3 : " + dayOneMealThreeTitle + ", id: " + dayOneMealThreeId);
+                $("#mealPlanSearchResults").append("Day 2 - Meal 1 : " + dayTwoMealOneTitle + ", id: " + dayTwoMealOneId);
+                $("#mealPlanSearchResults").append("Day 2 - Meal 2 : " + dayTwoMealTwoTitle + ", id: " + dayTwoMealTwoId);
+                $("#mealPlanSearchResults").append("Day 2 - Meal 3 : " + dayTwoMealThreeTitle + ", id: " + dayTwoMealThreeId);
 
-                console.log("Day 2 - Meal 1 : " + dayTwoMealOneTitle + ", id: " + dayTwoMealOneId);
-                console.log("Day 2 - Meal 2 : " + dayTwoMealTwoTitle + ", id: " + dayTwoMealTwoId);
-                console.log("Day 2 - Meal 3 : " + dayTwoMealThreeTitle + ", id: " + dayTwoMealThreeId);
+                $("#mealPlanSearchResults").append("Day 3 - Meal 1 : " + dayThreeMealOneTitle + ", id: " + dayThreeMealOneId);
+                $("#mealPlanSearchResults").append("Day 3 - Meal 2 : " + dayThreeMealTwoTitle + ", id: " + dayThreeMealTwoId);
+                $("#mealPlanSearchResults").append("Day 3 - Meal 3 : " + dayThreeMealThreeTitle + ", id: " + dayThreeMealThreeId);
 
-                console.log("Day 3 - Meal 1 : " + dayThreeMealOneTitle + ", id: " + dayThreeMealOneId);
-                console.log("Day 3 - Meal 2 : " + dayThreeMealTwoTitle + ", id: " + dayThreeMealTwoId);
-                console.log("Day 3 - Meal 3 : " + dayThreeMealThreeTitle + ", id: " + dayThreeMealThreeId);
+                $("#mealPlanSearchResults").append("Day 4 - Meal 1 : " + dayFourMealOneTitle + ", id: " + dayFourMealOneId);
+                $("#mealPlanSearchResults").append("Day 4 - Meal 2 : " + dayFourMealTwoTitle + ", id: " + dayFourMealTwoId);
+                $("#mealPlanSearchResults").append("Day 4 - Meal 3 : " + dayFourMealThreeTitle + ", id: " + dayFourMealThreeId);
 
-                console.log("Day 4 - Meal 1 : " + dayFourMealOneTitle + ", id: " + dayFourMealOneId);
-                console.log("Day 4 - Meal 2 : " + dayFourMealTwoTitle + ", id: " + dayFourMealTwoId);
-                console.log("Day 4 - Meal 3 : " + dayFourMealThreeTitle + ", id: " + dayFourMealThreeId);
+                $("#mealPlanSearchResults").append("Day 5 - Meal 1 : " + dayFiveMealOneTitle + ", id: " + dayFiveMealOneId);
+                $("#mealPlanSearchResults").append("Day 5 - Meal 2 : " + dayFiveMealTwoTitle + ", id: " + dayFiveMealTwoId);
+                $("#mealPlanSearchResults").append("Day 5 - Meal 3 : " + dayFiveMealThreeTitle + ", id: " + dayFiveMealThreeId);
 
-                console.log("Day 5 - Meal 1 : " + dayFiveMealOneTitle + ", id: " + dayFiveMealOneId);
-                console.log("Day 5 - Meal 2 : " + dayFiveMealTwoTitle + ", id: " + dayFiveMealTwoId);
-                console.log("Day 5 - Meal 3 : " + dayFiveMealThreeTitle + ", id: " + dayFiveMealThreeId);
+                $("#mealPlanSearchResults").append("Day 6 - Meal 1 : " + daySixMealOneTitle + ", id: " + daySixMealOneId);
+                $("#mealPlanSearchResults").append("Day 6 - Meal 2 : " + daySixMealTwoTitle + ", id: " + daySixMealTwoId);
+                $("#mealPlanSearchResults").append("Day 6 - Meal 3 : " + daySixMealThreeTitle + ", id: " + daySixMealThreeId);
 
-                console.log("Day 6 - Meal 1 : " + daySixMealOneTitle + ", id: " + daySixMealOneId);
-                console.log("Day 6 - Meal 2 : " + daySixMealTwoTitle + ", id: " + daySixMealTwoId);
-                console.log("Day 6 - Meal 3 : " + daySixMealThreeTitle + ", id: " + daySixMealThreeId);
-
-                console.log("Day 7 - Meal 1 : " + daySevenMealOneTitle + ", id: " + daySevenMealOneId);
-                console.log("Day 7 - Meal 2 : " + daySevenMealTwoTitle + ", id: " + daySevenMealTwoId);
-                console.log("Day 7 - Meal 3 : " + daySevenMealThreeTitle + ", id: " + daySevenMealThreeId);
-
-
-
-
-
+                $("#mealPlanSearchResults").append("Day 7 - Meal 1 : " + daySevenMealOneTitle + ", id: " + daySevenMealOneId);
+                $("#mealPlanSearchResults").append("Day 7 - Meal 2 : " + daySevenMealTwoTitle + ", id: " + daySevenMealTwoId);
+                $("#mealPlanSearchResults").append("Day 7 - Meal 3 : " + daySevenMealThreeTitle + ", id: " + daySevenMealThreeId);
 
                 
-                
-
-                
-                
-
-
-
-
-
-
             });
 
     };
