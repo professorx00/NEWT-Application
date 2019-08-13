@@ -94,7 +94,6 @@ $(document).ready(function () {
         })
             .then(function (response) {
 
-                console.log(response);
 
                 let MealPlanTitle = response.name;
 
@@ -146,6 +145,40 @@ $(document).ready(function () {
                 let daySevenMealTwoId = JSON.parse(response.items[19].value).id;
                 let daySevenMealThreeTitle = JSON.parse(response.items[20].value).title;
                 let daySevenMealThreeId = JSON.parse(response.items[20].value).id;
+
+                console.log(MealPlanTitle);
+
+                console.log("Day 1 - Meal 1 : " + dayOneMealOneTitle + ", id: " + dayOneMealOneId);
+                console.log("Day 1 - Meal 2 : " + dayOneMealTwoTitle + ", id: " + dayOneMealTwoId);
+                console.log("Day 1 - Meal 3 : " + dayOneMealThreeTitle + ", id: " + dayOneMealThreeId);
+
+                console.log("Day 2 - Meal 1 : " + dayTwoMealOneTitle + ", id: " + dayTwoMealOneId);
+                console.log("Day 2 - Meal 2 : " + dayTwoMealTwoTitle + ", id: " + dayTwoMealTwoId);
+                console.log("Day 2 - Meal 3 : " + dayTwoMealThreeTitle + ", id: " + dayTwoMealThreeId);
+
+                console.log("Day 3 - Meal 1 : " + dayThreeMealOneTitle + ", id: " + dayThreeMealOneId);
+                console.log("Day 3 - Meal 2 : " + dayThreeMealTwoTitle + ", id: " + dayThreeMealTwoId);
+                console.log("Day 3 - Meal 3 : " + dayThreeMealThreeTitle + ", id: " + dayThreeMealThreeId);
+
+                console.log("Day 4 - Meal 1 : " + dayFourMealOneTitle + ", id: " + dayFourMealOneId);
+                console.log("Day 4 - Meal 2 : " + dayFourMealTwoTitle + ", id: " + dayFourMealTwoId);
+                console.log("Day 4 - Meal 3 : " + dayFourMealThreeTitle + ", id: " + dayFourMealThreeId);
+
+                console.log("Day 5 - Meal 1 : " + dayFiveMealOneTitle + ", id: " + dayFiveMealOneId);
+                console.log("Day 5 - Meal 2 : " + dayFiveMealTwoTitle + ", id: " + dayFiveMealTwoId);
+                console.log("Day 5 - Meal 3 : " + dayFiveMealThreeTitle + ", id: " + dayFiveMealThreeId);
+
+                console.log("Day 6 - Meal 1 : " + daySixMealOneTitle + ", id: " + daySixMealOneId);
+                console.log("Day 6 - Meal 2 : " + daySixMealTwoTitle + ", id: " + daySixMealTwoId);
+                console.log("Day 6 - Meal 3 : " + daySixMealThreeTitle + ", id: " + daySixMealThreeId);
+
+                console.log("Day 7 - Meal 1 : " + daySevenMealOneTitle + ", id: " + daySevenMealOneId);
+                console.log("Day 7 - Meal 2 : " + daySevenMealTwoTitle + ", id: " + daySevenMealTwoId);
+                console.log("Day 7 - Meal 3 : " + daySevenMealThreeTitle + ", id: " + daySevenMealThreeId);
+
+
+
+
 
 
                 
