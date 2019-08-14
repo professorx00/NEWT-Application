@@ -157,7 +157,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         const user = firebaseUser.email.split("@")[0]
         $("#user").text(firebaseUser.email)
         firebase.database().ref(`/user/${user}`).once("value",function(snapshot){
-            console.log(snapshot.val().idList, snapshot.val().list)
+            // console.log(snapshot.val().idList, snapshot.val().list)
             ids = JSON.parse(snapshot.val().idList).listIds
             titles = JSON.parse(snapshot.val().titlelist).listTitles
             for(x=0;x<titles.length;x++){
