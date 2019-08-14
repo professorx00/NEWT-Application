@@ -26,3 +26,6 @@ video {
 #foodSection{
     margin: 1rem;
 }
+img.foodImg{
+    max-height: 10rem;
+}
