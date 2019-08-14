@@ -20,248 +20,217 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <!--barcode link? *elias*-->
+        <!--barcode link? *elias*-->
     <script defer async src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
 
 </head>
 
 <body>
 
-    <!--left container-->
-    <!--do not comment out-->
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3" id="sideNavBar" style="text-align: center">
-                    <div class="jumbotron jumbotron-fluid"
-                        style="background-color: #0798B8; color: black; height: 100vh;">
-                        <div class="container">
-                            <img src="./images/logo.png" alt="logo" class="logo">
-                            <br><br>
-                            <br>
-                            <h5 id="user"> Username</h5>
-                            <button id="logOut" class="btn btn-dark"> Log out</button>
-                            <br><br><br><br>
-                            <button type="button" class="btn btn-dark btn-lg btn-block" id="mealBtn">Meal Plan</button>
-                            <button type="button" class="btn btn-dark btn-lg btn-block" id="productBtn">Product
-                                Search</button>
+    <!--left container--> <!--do not comment out-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3" id="sideNavBar" style="text-align: center">
+                <div class="jumbotron jumbotron-fluid" style="background-color: #DCDCDC; color: black; height: 100vh">
+                    <div class="container">
+                        <img src="./images/placehold.png" alt="logo" class="logo">
+                        <h1 class="text-center"> Newt </h1>
+                        <br>
+                        <h5 id="user"> Username</h5>
+                        <button id="logOut" class="btn btn-dark"> Log out</button>
+                        <br><br><br><br>
+                        <button type="button" class="btn btn-dark btn-lg btn-block" id="mealBtn">Meal Plan</button>
+                        <button type="button" class="btn btn-dark btn-lg btn-block" id="productBtn">Product Search</button>
+                        
+                        <br><br><br><br><br><!--Spacers-->
 
-                            <br><br><br><br><br>
-                            <!--Spacers-->
-
-                            <div class="card border-dark mb-3 text-center" style="max-width: 180rem;">
-                                <div class="card-header">Grocery List</div>
-                                <div class="card-body text-dark">
-                                    <ul id="gList" style="list-style-type:none;">
-                                        <!--Grocery Buttons Go Here-->
-                                    </ul>
-                                </div>
+                        <div class="card border-dark mb-3 text-center" style="max-width: 180rem;">
+                            <div class="card-header">Grocery List</div>
+                            <div class="card-body text-dark">
+                                <ul id="gList" style="list-style-type:none;">
+                                   <!--Grocery Buttons Go Here-->
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
 
-                <!-- home page side with food facts container-->
-                <div class="col-lg-9" id="foodFacts">
-                    <div class="jumbotron jumbotron-fluid"
-                        style="background-color: #0798B8; color: black; height: 100vh">
-                        <div class="container">
-                            <h1 class="text-center"> Food Facts </h1>
-                        </div>
+            <!-- home page side with food facts container-->
+            <div class="col-lg-9" id="foodFacts">
+                <div style="background-color: #DCDCDC; color: black; height: 100%">
+                    <div class="container">
+                        <h1 class="text-center"> Food Facts </h1>
                         <br>
-                        <div class="card-deck">
-                            <div class="card">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Food Fact #1</h5>
-                                    <p class="card-text">Food fact goes here</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Food Fact #2</h5>
-                                    <p class="card-text">Food fact goes here</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Food Fact #3</h5>
-                                    <p class="card-text">Food fact goes here</p>
-                                </div>
-                            </div>
+                        <div class="card-deck" id="factContainer">
                         </div>
-                    </div>
                 </div>
+            </div>
 
 
 
-                <!-- container for product search-->
+            <!-- container for product search-->
 
-                <div class="col-lg-9 hide" id="productSearch">
-                    <div class="jumbotron jumbotron-fluid"
-                        style="background-color: #D7D9CE; color: black; height: 100vh">
-                        <div class="container">
-                            <h1 class="text-center"> Product Search </h1>
-                        </div>
-                        <br>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <form id="productForm">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="">Product</label>
-                                            <input type="text" class="form-control" id="query">
-                                        </div>
-                                        <div class="col">
+            <div class="col-lg-9 hide" id="productSearch">
+                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black; height: 100vh">
+                    <div class="container">
+                        <h1 class="text-center"> Product Search </h1>
+                    </div>
+                    <br>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <form id="productForm">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="">Product</label>
+                                        <input type="text" class="form-control" id="query">
+                                    </div>
+                                    <div class="col">
                                             <br>
-                                            <button class="btn btn-dark btn-lg" type="button" data-toggle="modal"
-                                                id="barcodeBtn" data-target="#livestream_scanner">
-                                                <i class="fa fa-barcode"></i>
-                                            </button>
-                                        </div>
+                                        <button class="btn btn-dark btn-lg" type="button" data-toggle="modal" id="barcodeBtn"
+                                            data-target="#livestream_scanner">
+                                            <i class="fa fa-barcode"></i>
+                                        </button>
                                     </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="">Max Calories</label>
-                                            <input type="number" class="form-control" id="maxCalories">
-                                        </div>
-                                        <div class="col">
-                                            <label for="">Min Calories</label>
-                                            <input type="number" class="form-control" id="minCalories">
-                                        </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="">Max Calories</label>
+                                        <input type="number" class="form-control" id="maxCalories">
                                     </div>
-                                    <br>
-                                    <button type="submit" class="btn btn-dark" id="productSearchBtn"> Search </button>
-                                </form>
-                            </div>
+                                    <div class="col">
+                                        <label for="">Min Calories</label>
+                                        <input type="number" class="form-control" id="minCalories">
+                                    </div>
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-dark" id="productSearchBtn"> Search </button>
+                            </form>
                         </div>
-                        <br>
-                        <div class="container">
-                            <h1 class="text-center"> Product Search Results: </h1>
-                            <div id="prodSearchResults">
+                    </div>
+                    <br>
+                    <div class="container">
+                        <h1 class="text-center"> Product Search Results: </h1>
+                        <div id="prodSearchResults">
 
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                <!-- container for meal plan-->
+            <!-- container for meal plan-->
 
-                <div class="col-lg-9 hide" id="mealPlans">
-                    <div class="jumbotron jumbotron-fluid"
-                        style="background-color: #D7D9CE; color: black; height: 100vh">
-                        <div class="container">
-                            <h1 class="text-center"> Meal Plan </h1>
-                        </div>
-                        <br>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="">Select Plan Length</label>
-                                        <select class="form-control" id="timeFrame">
-                                            <option value="Day">Day</option>
-                                            <option value="Week">Week</option>
+            <div class="col-lg-9 hide" id="mealPlans">
+                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black; height: 100vh">
+                    <div class="container">
+                        <h1 class="text-center"> Meal Plan </h1>
+                    </div>
+                    <br>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="">Select Plan Length</label>
+                                    <select class="form-control" id="timeFrame">
+                                        <option value="Day">Day</option>
+                                        <option value="Week">Week</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="">Target Calories</label>
+                                        <select class="form-control" id="targetCalories">
+                                            <option value="700">700</option>
+                                            <option value="800">800</option>
+                                            <option value="900">900</option>
+                                            <option value="1000">1000</option>
+                                            <option value="1100">1100</option>
+                                            <option value="1200">1200</option>
+                                            <option value="1300">1300</option>
+                                            <option value="1400">1400</option>
+                                            <option value="1500">1500</option>
+                                            <option value="1600">1600</option>
+                                            <option value="1700">1700</option>
+                                            <option value="1800">1800</option>
+                                            <option value="1900">1900</option>
+                                            <option value="2000">2000</option>
+                                            <option value="2100">2100</option>
+                                            <option value="2200">2200</option>
+                                            <option value="2300">2300</option>
+                                            <option value="2400">2400</option>
+                                            <option value="2500">2500</option>
+                                            <option value="2600">2600</option>
+                                            <option value="2700">2700</option>
+                                            <option value="2800">2800</option>
+                                            <option value="2900">2900</option>
+                                            <option value="3000">3000</option>
+                                            <option value="3100">3100</option>
+                                            <option value="3200">3200</option>
+                                            <option value="3300">3300</option>
+                                            <option value="3400">3400</option>
+                                            <option value="3500">3500</option>
+                                            <option value="3600">3600</option>
+                                            <option value="3700">3700</option>
+                                            <option value="3800">3800</option>
+                                            <option value="3900">3900</option>
+                                            <option value="4000">4000</option>
+                                            <option value="4100">4100</option>
+                                            <option value="4200">4200</option>
+                                            <option value="4300">4300</option>
+                                            <option value="4400">4400</option>
+                                            <option value="4500">4500</option>
+                                            <option value="4600">4600</option>
+                                            <option value="4700">4700</option>
+                                            <option value="4800">4800</option>
+                                            <option value="4900">4900</option>
+                                            <option value="5000">5000</option>
                                         </select>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="">Target Calories</label>
-                                            <select class="form-control" id="targetCalories">
-                                                <option value="700">700</option>
-                                                <option value="800">800</option>
-                                                <option value="900">900</option>
-                                                <option value="1000">1000</option>
-                                                <option value="1100">1100</option>
-                                                <option value="1200">1200</option>
-                                                <option value="1300">1300</option>
-                                                <option value="1400">1400</option>
-                                                <option value="1500">1500</option>
-                                                <option value="1600">1600</option>
-                                                <option value="1700">1700</option>
-                                                <option value="1800">1800</option>
-                                                <option value="1900">1900</option>
-                                                <option value="2000">2000</option>
-                                                <option value="2100">2100</option>
-                                                <option value="2200">2200</option>
-                                                <option value="2300">2300</option>
-                                                <option value="2400">2400</option>
-                                                <option value="2500">2500</option>
-                                                <option value="2600">2600</option>
-                                                <option value="2700">2700</option>
-                                                <option value="2800">2800</option>
-                                                <option value="2900">2900</option>
-                                                <option value="3000">3000</option>
-                                                <option value="3100">3100</option>
-                                                <option value="3200">3200</option>
-                                                <option value="3300">3300</option>
-                                                <option value="3400">3400</option>
-                                                <option value="3500">3500</option>
-                                                <option value="3600">3600</option>
-                                                <option value="3700">3700</option>
-                                                <option value="3800">3800</option>
-                                                <option value="3900">3900</option>
-                                                <option value="4000">4000</option>
-                                                <option value="4100">4100</option>
-                                                <option value="4200">4200</option>
-                                                <option value="4300">4300</option>
-                                                <option value="4400">4400</option>
-                                                <option value="4500">4500</option>
-                                                <option value="4600">4600</option>
-                                                <option value="4700">4700</option>
-                                                <option value="4800">4800</option>
-                                                <option value="4900">4900</option>
-                                                <option value="5000">5000</option>
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <label for="">Select Diet</label>
-                                            <select class="form-control" id="Diet">
-                                                <option>None</option>
-                                                <option>Gluten Free</option>
-                                                <option>Ketogenic</option>
-                                                <option>Vegetarian</option>
-                                                <option>Lacto-Vegetarian</option>
-                                                <option>Vegan</option>
-                                                <option>Pescetarian</option>
-                                                <option>Paleo</option>
-                                                <option>Primal</option>
-                                                <option>WholeThirty</option>
-                                            </select>
-                                        </div>
+                                    <div class="col">
+                                        <label for="">Select Diet</label>
+                                        <select class="form-control" id="Diet">
+                                            <option>None</option>
+                                            <option>Gluten Free</option>
+                                            <option>Ketogenic</option>
+                                            <option>Vegetarian</option>
+                                            <option>Lacto-Vegetarian</option>
+                                            <option>Vegan</option>
+                                            <option>Pescetarian</option>
+                                            <option>Paleo</option>
+                                            <option>Primal</option>
+                                            <option>WholeThirty</option>
+                                        </select>
                                     </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label for="">Exclude (seperate by a comma)</label>
-                                        <textarea class="form-control" id="exclude" rows="3"></textarea>
-                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="">Exclude (seperate by a comma)</label>
+                                    <textarea class="form-control" id="exclude" rows="3"></textarea>
+                                </div>
 
 
-                                    <button type="button" class="btn btn-dark" id="mealPlanSearchBtn"> Search </button>
-                                </form>
-                            </div>
+                                <button type="button" class="btn btn-dark" id="mealPlanSearchBtn"> Search </button>
+                            </form>
                         </div>
-                        <br>
-                        <div class="container">
-                            <h1 class="text-center"> Meal Plan Results: </h1>
-                            <div id=mealPlanSearchResults>
+                    </div>
+                    <br>
+                    <div class="container">
+                        <h1 class="text-center"> Meal Plan Results: </h1>
+                        <div id=mealPlanSearchResults>
 
-                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
             </div>
+
+
+
+
+
         </div>
     </div>
 
@@ -302,6 +271,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script src="./scripts/FoodFacts.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/scanner.js"></script>
     <!-- <script src="./scripts/productSearch.js"></script> -->

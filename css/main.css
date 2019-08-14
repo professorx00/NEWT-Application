@@ -16,3 +16,16 @@ video {
     height: 100%;
 }
 
+
+#factContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2rem;
+}
+
+#foodSection{
+    margin: 1rem;
+}
+img.foodImg{
+    max-height: 10rem;
+}
