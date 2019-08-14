@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+    let apiKey = "615df94260a44b4da806def011b2e2c7"
+    let apiKeyTwo = "8ddc0ae008584fe49220c56590f9c9dc"
+
+    let productIds = [];
+    let mealPlanIds = [];
+
+    let mealResults = $("#mealPlanSearchResults");
 
     function resetMealPlan() {
         $("Diet").val('');
@@ -15,7 +22,7 @@ $(document).ready(function () {
         let targetCalories = $("#targetCalories").val() || "2000";
         let exclude = $("#exclude").val();
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + exclude + "&apiKey=615df94260a44b4da806def011b2e2c7"
+            "&diet=" + diet + "&exclude" + exclude + "&apiKey=" + apiKeyTwo
 
 
 
@@ -46,26 +53,45 @@ $(document).ready(function () {
                 let mealChoiceThreeServings = response.meals[2].servings;
                 let mealChoiceThreeTitle = response.meals[2].title;
 
+                productIds.push(mealChoiceOneId);
+                productIds.push(mealChoiceTwoId);
+                productIds.push(mealChoiceThreeId);
 
-                console.log("Meal One: " + mealChoiceOneTitle);
-                console.log("Id : " + mealChoiceOneId);
-                console.log("Minutes to make : " + mealChoiceOneTime);
-                console.log("Servings : " + mealChoiceOneServings);
 
-                console.log("Meal Two: " + mealChoiceTwoTitle);
-                console.log("Id : " + mealChoiceTwoId);
-                console.log("Minutes to make : " + mealChoiceTwoTime);
-                console.log("Servings : " + mealChoiceTwoServings);
+                let mealOneDiv = $("<div>")
+                    .attr("class", "meal")
+                    .append($("<h1>").text("Meal One : " + mealChoiceOneTitle))
+                    .append($("<p>").text("ID : " + mealChoiceOneId))
+                    .append($("<p>").text("Servings : " + mealChoiceOneServings))
+                    .append($("<p>").text("Time : " + mealChoiceOneTime));
+                let mealTwoDiv = $("<div>")
+                    .attr("class", "meal")
+                    .append($("<h1>").text("Meal Two : " + mealChoiceTwoTitle))
+                    .append($("<p>").text("ID : " + mealChoiceTwoId))
+                    .append($("<p>").text("Servings : " + mealChoiceTwoServings))
+                    .append($("<p>").text("Time : " + mealChoiceTwoTime));
+                let mealThreeDiv = $("<div>")
+                    .attr("class", "meal")
+                    .append($("<h1>").text("Meal Three : " + mealChoiceThreeTitle))
+                    .append($("<p>").text("ID : " + mealChoiceOneId))
+                    .append($("<p>").text("Servings : " + mealChoiceOneServings))
+                    .append($("<p>").text("Time : " + mealChoiceOneTime));
 
-                console.log("Meal three: " + mealChoiceThreeTitle);
-                console.log("Id : " + mealChoiceThreeId);
-                console.log("Minutes to make : " + mealChoiceThreeTime);
-                console.log("Servings : " + mealChoiceThreeServings);
+                let nutritionDiv = $("<ul>");
 
-                console.log("Total Calories for the Day : " + mealsCalories);
-                console.log("Total Carbs for the Day : " + mealsCarbs);
-                console.log("Total Fats for the Day : " + mealsFat);
-                console.log("Total Proteins for the Day : " + mealsProtein);
+                nutritionCalories = $("<li>").text("Total Calories for the Day : " + mealsCalories);
+                nutritionCarbs = $("<li>").text("Total Carbs for the Day : " + mealsCarbs);
+                nutritionFat = $("<li>").text("Total Fat for the Day : " + mealsFat);
+                nutritionProtein = $("<li>").text("Total Carbs for the Day : " + mealsProtein);
+
+                nutritionDiv.append(nutritionCalories, nutritionCarbs, nutritionFat, nutritionProtein);
+
+                mealResults.append(mealOneDiv, mealTwoDiv, mealThreeDiv, nutritionDiv);
+
+
+
+
+
 
 
 
@@ -74,6 +100,26 @@ $(document).ready(function () {
 
 
             });
+            // .then(function (promise) {
+
+            //     mealPlanIds.forEach(element => {
+            //         let productID = element;
+            //         queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true$apiKey=" + apiKeyTwo;
+
+
+            //         $.get(queryMealInfo, function () { }).then(function (data) {
+
+
+
+
+
+            //         });
+
+
+
+            //     });
+
+            // });
 
     };
 
@@ -96,6 +142,7 @@ $(document).ready(function () {
 
 
                 let mealPlanTitle = response.name;
+
 
                 let dayOneMealOneTitle = JSON.parse(response.items[0].value).title;
                 let dayOneMealOneId = JSON.parse(response.items[0].value).id;
@@ -146,7 +193,31 @@ $(document).ready(function () {
                 let daySevenMealThreeTitle = JSON.parse(response.items[20].value).title;
                 let daySevenMealThreeId = JSON.parse(response.items[20].value).id;
 
-                
+                mealPlanIds.push(dayOneMealOneId);
+                mealPlanIds.push(dayOneMealTwoId);
+                mealPlanIds.push(dayOneMealThreeId);
+                mealPlanIds.push(dayTwoMealOneId);
+                mealPlanIds.push(dayTwoMealTwoId);
+                mealPlanIds.push(dayTwoMealThreeId);
+                mealPlanIds.push(dayThreeMealOneId);
+                mealPlanIds.push(dayThreeMealTwoId);
+                mealPlanIds.push(dayThreeMealThreeId);
+                mealPlanIds.push(dayFourMealOneId);
+                mealPlanIds.push(dayFourMealTwoId);
+                mealPlanIds.push(dayFourMealThreeId);
+                mealPlanIds.push(dayFiveMealOneId);
+                mealPlanIds.push(dayFiveMealTwoId);
+                mealPlanIds.push(dayFiveMealThreeId);
+                mealPlanIds.push(daySixMealOneId);
+                mealPlanIds.push(daySixMealTwoId);
+                mealPlanIds.push(daySixMealThreeId);
+                mealPlanIds.push(daySevenMealOneId);
+                mealPlanIds.push(daySevenMealTwoId);
+                mealPlanIds.push(daySevenMealThreeId);
+
+                console.log(mealPlanIds);
+
+
             });
 
     };
@@ -155,11 +226,12 @@ $(document).ready(function () {
 
         if ($("#timeFrame").val() === "Week") {
 
+            console.log("Week Plan")
             getMealPlanWeek();
             resetMealPlan();
 
         } else {
-
+            console.log("Day Plan")
             getMealPlanDay();
             resetMealPlan();
 
