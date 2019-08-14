@@ -2,13 +2,10 @@ $(document).ready(function () {
 
     const apiKey = `3fa48d8832ec49088f593fab542b7eea`;
 
-    let productIds = [];
     let productData = {}
 
     //document Jquery Items:
 
-    const btn = $("#productSearchBtn");
-    const glist = $("#gList")
     const results = $("#prodSearchResults")
 
     // Create the QuaggaJS config object for the live stream
@@ -121,11 +118,6 @@ $(document).ready(function () {
         }
     });
 
-    //TODO: Product Search API
-    //TODO: Grab Fields from Index
-    //TODO: Pushback data
-
-
     function lookUpUPC(upc) {
 
         queryProduct = `https://api.spoonacular.com/food/products/upc/${upc}?&apiKey=${apiKey}`;
@@ -137,22 +129,35 @@ $(document).ready(function () {
 
             let packagedProduct = input;
             console.log(packagedProduct);
+            if (packagedProduct.status == "failure") {
+                console.log(packagedProduct.message);
+                docErrorDiv = $("<div>").append($("<h1>").text(packagedProduct.status)).append($("<p>").text(packagedProduct.message));
+                results.prepend(docErrorDiv);
+                docErrorDiv.css({
+                    'color': '#FF0000',
+                    'font-weight': '600',
+                })
+                setInterval(()=>{docErrorDiv.remove()}, 5000);
+                return;
+            }
 
-            console.log(packagedProduct)
+            console.log("A")
             docNewDiv = $("<div>").attr("data-id", packagedProduct.id).append($("<h1>").text(packagedProduct.title)).append($("<p>").text(packagedProduct.ingredientList))
-            console.log(docNewDiv)
+            console.log("B")
             docNutrition = $("<ul>")
             console.log(packagedProduct.nutrition.calories)
             docCalories = $("<li>").text(`Calories: ${packagedProduct.nutrition.calories}`)
             docCarbs = $("<li>").text(`Carbs: ${packagedProduct.nutrition.carbs}`)
             docFat = $("<li>").text(`Fat: ${packagedProduct.nutrition.fat}`)
             docProtein = $("<li>").text(`Protein: ${packagedProduct.nutrition.protein}`)
+            docProductBtn = $("<button>").addClass("productBtn btn btn-dark").text("Add").attr("data-title", packagedProduct.title).attr("data-id", packagedProduct.id)
 
             docNutrition.append(docCalories, docCarbs, docFat, docProtein)
-            console.log(docNutrition)
-            docNewDiv.append(docNutrition)
-
+            console.log("appended 1")
+            docNewDiv.append(docNutrition, docProductBtn);
+            console.log("appended 2");
             results.append(docNewDiv)
+            console.log("appended 3");
 
             productData[packagedProduct.id] = {
                 id: packagedProduct.id,
