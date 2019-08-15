@@ -40,7 +40,7 @@ mealBtn.on("click", e => {
     console.log("meal Plan Button Clicked")
     $("#foodFacts").addClass("hide");
     $("#productSearch").addClass("hide");
-    $("#mealPlans").removeClass("hide");
+    $("#mealPlans").removeClass("hide").addClass("YYYYYEEAHH");
 });
 productBtn.on("click", e => {
     console.log("product Search Button Clicked")
