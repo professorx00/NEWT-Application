@@ -100,26 +100,26 @@ $(document).ready(function () {
 
 
             });
-            // .then(function (promise) {
+        // .then(function (promise) {
 
-            //     mealPlanIds.forEach(element => {
-            //         let productID = element;
-            //         queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true$apiKey=" + apiKeyTwo;
-
-
-            //         $.get(queryMealInfo, function () { }).then(function (data) {
+        //     mealPlanIds.forEach(element => {
+        //         let productID = element;
+        //         queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true$apiKey=" + apiKeyTwo;
 
 
+        //         $.get(queryMealInfo, function () { }).then(function (data) {
 
 
 
-            //         });
+
+
+        //         });
 
 
 
-            //     });
+        //     });
 
-            // });
+        // });
 
     };
 
@@ -194,79 +194,79 @@ $(document).ready(function () {
                 let daySevenMealThreeId = JSON.parse(response.items[20].value).id;
 
                 mealPlanIds.push(
-                    dayOneMealOneId, dayOneMealTwoId, dayOneMealThreeId, 
-                    dayTwoMealOneId, dayTwoMealTwoId, dayTwoMealThreeId, 
-                    dayFourMealOneId, dayFourMealTwoId, dayFourMealThreeId, 
-                    dayFiveMealOneId, dayFiveMealTwoId, dayFiveMealThreeId, 
-                    daySixMealOneId, daySixMealTwoId, daySixMealThreeId, 
+                    dayOneMealOneId, dayOneMealTwoId, dayOneMealThreeId,
+                    dayTwoMealOneId, dayTwoMealTwoId, dayTwoMealThreeId,
+                    dayFourMealOneId, dayFourMealTwoId, dayFourMealThreeId,
+                    dayFiveMealOneId, dayFiveMealTwoId, dayFiveMealThreeId,
+                    daySixMealOneId, daySixMealTwoId, daySixMealThreeId,
                     daySevenMealOneId, daySevenMealTwoId, daySevenMealThreeId
-                    );
-                
+                );
+
 
                 console.log(mealPlanIds);
 
                 let dayOne = $("<div>")
-                .append($("<h1>").text("Day One"))
-                .append($("<h2>").text("Meal One : " + dayOneMealOneTitle))
-                .append($("<p>").text("ID : " + dayOneMealOneId))
-                .append($("<h2>").text("Meal Two : " + dayOneMealTwoTitle))
-                .append($("<p>").text("ID : " + dayOneMealTwoId))
-                .append($("<h2>").text("Meal Three : " + dayOneMealThreeTitle))
-                .append($("<p>").text("ID : " + dayOneMealThreeId));
+                    .append($("<h1>").text("Day One"))
+                    .append($("<h2>").text("Meal One : " + dayOneMealOneTitle))
+                    .append($("<p>").text("ID : " + dayOneMealOneId))
+                    .append($("<h2>").text("Meal Two : " + dayOneMealTwoTitle))
+                    .append($("<p>").text("ID : " + dayOneMealTwoId))
+                    .append($("<h2>").text("Meal Three : " + dayOneMealThreeTitle))
+                    .append($("<p>").text("ID : " + dayOneMealThreeId));
 
                 let dayTwo = $("<div>")
-                .append($("<h1>").text("Day Two"))
-                .append($("<h2>").text("Meal One : " + dayTwoMealOneTitle))
-                .append($("<p>").text("ID : " + dayTwoMealOneId))
-                .append($("<h2>").text("Meal Two : " + dayTwoMealTwoTitle))
-                .append($("<p>").text("ID : " + dayTwoMealTwoId))
-                .append($("<h2>").text("Meal Three : " + dayTwoMealThreeTitle))
-                .append($("<p>").text("ID : " + dayTwoMealThreeId));
+                    .append($("<h1>").text("Day Two"))
+                    .append($("<h2>").text("Meal One : " + dayTwoMealOneTitle))
+                    .append($("<p>").text("ID : " + dayTwoMealOneId))
+                    .append($("<h2>").text("Meal Two : " + dayTwoMealTwoTitle))
+                    .append($("<p>").text("ID : " + dayTwoMealTwoId))
+                    .append($("<h2>").text("Meal Three : " + dayTwoMealThreeTitle))
+                    .append($("<p>").text("ID : " + dayTwoMealThreeId));
 
                 let dayThree = $("<div>")
-                .append($("<h1>").text("Day Three"))
-                .append($("<h2>").text("Meal One : " + dayThreeMealOneTitle))
-                .append($("<p>").text("ID : " + dayThreeMealOneId))
-                .append($("<h2>").text("Meal Two : " + dayThreeMealTwoTitle))
-                .append($("<p>").text("ID : " + dayThreeMealTwoId))
-                .append($("<h2>").text("Meal Three : " + dayThreeMealThreeTitle))
-                .append($("<p>").text("ID : " + dayThreeMealThreeId))
+                    .append($("<h1>").text("Day Three"))
+                    .append($("<h2>").text("Meal One : " + dayThreeMealOneTitle))
+                    .append($("<p>").text("ID : " + dayThreeMealOneId))
+                    .append($("<h2>").text("Meal Two : " + dayThreeMealTwoTitle))
+                    .append($("<p>").text("ID : " + dayThreeMealTwoId))
+                    .append($("<h2>").text("Meal Three : " + dayThreeMealThreeTitle))
+                    .append($("<p>").text("ID : " + dayThreeMealThreeId))
 
                 let dayFour = $("<div>")
-                .append($("<h1>").text("Day Four"))
-                .append($("<h2>").text("Meal One : " + dayFourMealOneTitle))
-                .append($("<p>").text("ID : " + dayFourMealOneId))
-                .append($("<h2>").text("Meal Two : " + dayFourMealTwoTitle))
-                .append($("<p>").text("ID : " + dayFourMealTwoId))
-                .append($("<h2>").text("Meal Three : " + dayFourMealThreeTitle))
-                .append($("<p>").text("ID : " + dayFourMealThreeId));
+                    .append($("<h1>").text("Day Four"))
+                    .append($("<h2>").text("Meal One : " + dayFourMealOneTitle))
+                    .append($("<p>").text("ID : " + dayFourMealOneId))
+                    .append($("<h2>").text("Meal Two : " + dayFourMealTwoTitle))
+                    .append($("<p>").text("ID : " + dayFourMealTwoId))
+                    .append($("<h2>").text("Meal Three : " + dayFourMealThreeTitle))
+                    .append($("<p>").text("ID : " + dayFourMealThreeId));
 
                 let dayFive = $("<div>")
-                .append($("<h1>").text("Day Five"))
-                .append($("<h2>").text("Meal One : " + dayFiveMealOneTitle))
-                .append($("<p>").text("ID : " + dayFiveMealOneId))
-                .append($("<h2>").text("Meal Two : " + dayFiveMealTwoTitle))
-                .append($("<p>").text("ID : " + dayFiveMealTwoId))
-                .append($("<h2>").text("Meal Three : " + dayFiveMealThreeTitle))
-                .append($("<p>").text("ID : " + dayFiveMealThreeId));
+                    .append($("<h1>").text("Day Five"))
+                    .append($("<h2>").text("Meal One : " + dayFiveMealOneTitle))
+                    .append($("<p>").text("ID : " + dayFiveMealOneId))
+                    .append($("<h2>").text("Meal Two : " + dayFiveMealTwoTitle))
+                    .append($("<p>").text("ID : " + dayFiveMealTwoId))
+                    .append($("<h2>").text("Meal Three : " + dayFiveMealThreeTitle))
+                    .append($("<p>").text("ID : " + dayFiveMealThreeId));
 
                 let daySix = $("<div>")
-                .append($("<h1>").text("Day Six"))
-                .append($("<h2>").text("Meal One : " + daySixMealOneTitle))
-                .append($("<p>").text("ID : " + daySixMealOneId))
-                .append($("<h2>").text("Meal Two : " + daySixMealTwoTitle))
-                .append($("<p>").text("ID : " + daySixMealTwoId))
-                .append($("<h2>").text("Meal Three : " + daySixMealThreeTitle))
-                .append($("<p>").text("ID : " + daySixMealThreeId))
+                    .append($("<h1>").text("Day Six"))
+                    .append($("<h2>").text("Meal One : " + daySixMealOneTitle))
+                    .append($("<p>").text("ID : " + daySixMealOneId))
+                    .append($("<h2>").text("Meal Two : " + daySixMealTwoTitle))
+                    .append($("<p>").text("ID : " + daySixMealTwoId))
+                    .append($("<h2>").text("Meal Three : " + daySixMealThreeTitle))
+                    .append($("<p>").text("ID : " + daySixMealThreeId))
 
                 let daySeven = $("<div>")
-                .append($("<h1>").text("Day Seven"))
-                .append($("<h2>").text("Meal One : " + daySevenMealOneTitle))
-                .append($("<p>").text("ID : " + daySevenMealOneId))
-                .append($("<h2>").text("Meal Two : " + daySevenMealTwoTitle))
-                .append($("<p>").text("ID : " + daySevenMealTwoId))
-                .append($("<h2>").text("Meal Three : " + daySevenMealThreeTitle))
-                .append($("<p>").text("ID : " + daySevenMealThreeId))
+                    .append($("<h1>").text("Day Seven"))
+                    .append($("<h2>").text("Meal One : " + daySevenMealOneTitle))
+                    .append($("<p>").text("ID : " + daySevenMealOneId))
+                    .append($("<h2>").text("Meal Two : " + daySevenMealTwoTitle))
+                    .append($("<p>").text("ID : " + daySevenMealTwoId))
+                    .append($("<h2>").text("Meal Three : " + daySevenMealThreeTitle))
+                    .append($("<p>").text("ID : " + daySevenMealThreeId))
 
                 mealResults.append(dayOne, dayTwo, dayThree, dayFour, dayFive, daySix, daySeven);
 
@@ -276,7 +276,7 @@ $(document).ready(function () {
 
 
 
-                
+
 
 
             });
