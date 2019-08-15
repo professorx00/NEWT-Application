@@ -42,3 +42,7 @@ body{
     margin-right: auto;
     width: 90%;
   }
+  
+*.btn{
+    box-shadow: 2px 2px white;
+}
