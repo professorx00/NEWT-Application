@@ -1,8 +1,8 @@
 $(document).ready(function () {
     imgUrls = ["food1","food2","food3","food4","food5","food6","food7","food8","food9","food10","food11","food12","food13","food14","food15","food16","food17","food18"]
 
-     let apiKey = "e9a27e4da700489a836bf1b7cdc449b9"
-    //615df94260a44b4da806def011b2e2c7
+    //  let apiKey = "e9a27e4da700489a836bf1b7cdc449b9"
+     let apiKey = "615df94260a44b4da806def011b2e2c7"
     function getFoodFact(i,img) {
 
         let queryURL = `https://api.spoonacular.com/food/trivia/random?apiKey=${apiKey}`;
