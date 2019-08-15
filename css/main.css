@@ -17,6 +17,18 @@ video {
 }
 
 
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+p, h5{
+    color: black;
+}
+
+.wrapper{
+    background-color: #0798B8;
+
+
 #factContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -28,4 +40,5 @@ video {
 }
 img.foodImg{
     max-height: 10rem;
+
 }

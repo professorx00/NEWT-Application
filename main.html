@@ -22,33 +22,41 @@
         crossorigin="anonymous"></script>
         <!--barcode link? *elias*-->
     <script defer async src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
-
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet">
 </head>
 
-<body>
 
-    <!--left container--> <!--do not comment out-->
+
+<body>
+<!--left container-->
+<div class="wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3" id="sideNavBar" style="text-align: center">
-                <div class="jumbotron jumbotron-fluid" style="background-color: #DCDCDC; color: black; height: 100vh">
+                <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8; color: white; height: 100vh;">
                     <div class="container">
-                        <img src="./images/placehold.png" alt="logo" class="logo">
-                        <h1 class="text-center"> Newt </h1>
+                        <img src="./images/logo.png" alt="logo" class="logo">
+                        <br><br>
+
                         <br>
                         <h5 id="user"> Username</h5>
                         <button id="logOut" class="btn btn-dark"> Log out</button>
                         <br><br><br><br>
                         <button type="button" class="btn btn-dark btn-lg btn-block" id="mealBtn">Meal Plan</button>
-                        <button type="button" class="btn btn-dark btn-lg btn-block" id="productBtn">Product Search</button>
-                        
-                        <br><br><br><br><br><!--Spacers-->
+
+                        <button type="button" class="btn btn-dark btn-lg btn-block" id="productBtn">Product
+                            Search</button>
+
+                        <br><br><br><br><br>
+                        <!--Spacers-->
 
                         <div class="card border-dark mb-3 text-center" style="max-width: 180rem;">
-                            <div class="card-header">Grocery List</div>
-                            <div class="card-body text-dark">
-                                <ul id="gList" style="list-style-type:none;">
-                                   <!--Grocery Buttons Go Here-->
+                            <div class="card-header" style= "color: black;">Grocery List</div>
+                            <div class="card-body text-dark" >
+                                <ul id="gList" style="list-style-type:none; color: black">
+                                    <!--Grocery Buttons Go Here-->
+
                                 </ul>
                             </div>
                         </div>
@@ -65,7 +73,7 @@
                         <h1 class="text-center"> Food Facts </h1>
                         <br>
                         <div class="card-deck" id="factContainer">
-                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -74,7 +82,9 @@
             <!-- container for product search-->
 
             <div class="col-lg-9 hide" id="productSearch">
-                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black; height: 100vh">
+              
+                <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8;; color: white; height: 100vh">
+
                     <div class="container">
                         <h1 class="text-center"> Product Search </h1>
                     </div>
@@ -88,9 +98,9 @@
                                         <input type="text" class="form-control" id="query">
                                     </div>
                                     <div class="col">
-                                            <br>
-                                        <button class="btn btn-dark btn-lg" type="button" data-toggle="modal" id="barcodeBtn"
-                                            data-target="#livestream_scanner">
+                                        <br>
+                                        <button class="btn btn-dark btn-lg" type="button" data-toggle="modal"
+                                            id="barcodeBtn" data-target="#livestream_scanner">
                                             <i class="fa fa-barcode"></i>
                                         </button>
                                     </div>
@@ -101,6 +111,7 @@
                                         <label for="">Max Calories</label>
                                         <input type="number" class="form-control" id="maxCalories">
                                     </div>
+
                                     <div class="col">
                                         <label for="">Min Calories</label>
                                         <input type="number" class="form-control" id="minCalories">
@@ -125,7 +136,9 @@
             <!-- container for meal plan-->
 
             <div class="col-lg-9 hide" id="mealPlans">
-                <div class="jumbotron jumbotron" style="background-color: #DCDCDC; color: black; height: 100vh">
+
+                <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8;; color: white; height: 100vh">
+
                     <div class="container">
                         <h1 class="text-center"> Meal Plan </h1>
                     </div>
@@ -234,33 +247,26 @@
 
         </div>
     </div>
+</div>
 
 
 
-    <!--modal-->
-    <div class="modal fade" id="livestream_scanner" tabindex="-1" role="dialog" aria-labelledby="barcode input">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Barcode Scanner</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="position: static">
-                    <div id="interactive" class="viewport">
-                        <video class="videoCamera" autoplay="true" preload="auto" src="" muted="true"
-                            playsinline="true"></video>
-                        <canvas class="drawingBuffer"></canvas>
-                    </div>
-                    <div class="error"></div>
-                </div>
-                <div class="modal-footer">
-                    <label class="btn btn-default pull-left">
-                        <i class="fa fa-camera"></i> Use camera app
-                        <input type="file" accept="image/*;capture=camera" capture="camera" class="hidden" />
-                    </label>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+<!--modal-->
+<div class="modal fade" id="livestream_scanner" tabindex="-1" role="dialog" aria-labelledby="barcode input">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Barcode Scanner</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="position: static">
+                <div id="interactive" class="viewport">
+                    <video class="videoCamera" autoplay="true" preload="auto" src="" muted="true"
+                        playsinline="true"></video>
+                    <canvas class="drawingBuffer"></canvas>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
