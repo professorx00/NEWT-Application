@@ -63,19 +63,19 @@ $(document).ready(function () {
                     .append($("<h1>").text("Meal One : " + mealChoiceOneTitle))
                     .append($("<p>").text("ID : " + mealChoiceOneId))
                     .append($("<p>").text("Servings : " + mealChoiceOneServings))
-                    .append($("<p>").text("Time : " + mealChoiceOneTime));
+                    .append($("<p>").text("Time : " + mealChoiceOneTime + " minutes"));
                 let mealTwoDiv = $("<div>")
                     .attr("class", "meal")
                     .append($("<h1>").text("Meal Two : " + mealChoiceTwoTitle))
                     .append($("<p>").text("ID : " + mealChoiceTwoId))
                     .append($("<p>").text("Servings : " + mealChoiceTwoServings))
-                    .append($("<p>").text("Time : " + mealChoiceTwoTime));
+                    .append($("<p>").text("Time : " + mealChoiceTwoTime + " minutes"));
                 let mealThreeDiv = $("<div>")
                     .attr("class", "meal")
                     .append($("<h1>").text("Meal Three : " + mealChoiceThreeTitle))
                     .append($("<p>").text("ID : " + mealChoiceOneId))
                     .append($("<p>").text("Servings : " + mealChoiceOneServings))
-                    .append($("<p>").text("Time : " + mealChoiceOneTime));
+                    .append($("<p>").text("Time : " + mealChoiceOneTime + " minutes"));
 
                 let nutritionDiv = $("<ul>");
 
@@ -196,6 +196,7 @@ $(document).ready(function () {
                 mealPlanIds.push(
                     dayOneMealOneId, dayOneMealTwoId, dayOneMealThreeId,
                     dayTwoMealOneId, dayTwoMealTwoId, dayTwoMealThreeId,
+                    dayThreeMealOneId,dayThreeMealTwoId, dayThreeMealThreeId,
                     dayFourMealOneId, dayFourMealTwoId, dayFourMealThreeId,
                     dayFiveMealOneId, dayFiveMealTwoId, dayFiveMealThreeId,
                     daySixMealOneId, daySixMealTwoId, daySixMealThreeId,
@@ -284,6 +285,8 @@ $(document).ready(function () {
     };
 
     $("#mealPlanSearchBtn").on("click", function () {
+
+        mealResults.empty();
 
         if ($("#timeFrame").val() === "Week") {
 
