@@ -22,10 +22,6 @@ body{
     background-color: #0798B8;
 }
 
-p, h5{
-    color: black;
-}
-
 .wrapper{
     background-color: #0798B8;
 
@@ -39,7 +35,10 @@ p, h5{
 #foodSection{
     margin: 1rem;
 }
-img.foodImg{
-    max-height: 10rem;
 
-}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
