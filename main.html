@@ -20,11 +20,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <!--barcode link? *elias*-->
+        <!--barcode link? *elias*-->
     <script defer async src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
     <!--google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet">
 </head>
+
 
 
 <body>
@@ -37,11 +38,13 @@
                     <div class="container">
                         <img src="./images/logo.png" alt="logo" class="logo">
                         <br><br>
+
                         <br>
                         <h5 id="user"> Username</h5>
                         <button id="logOut" class="btn btn-dark"> Log out</button>
                         <br><br><br><br>
                         <button type="button" class="btn btn-dark btn-lg btn-block" id="mealBtn">Meal Plan</button>
+
                         <button type="button" class="btn btn-dark btn-lg btn-block" id="productBtn">Product
                             Search</button>
 
@@ -53,6 +56,7 @@
                             <div class="card-body text-dark" >
                                 <ul id="gList" style="list-style-type:none; color: black">
                                     <!--Grocery Buttons Go Here-->
+
                                 </ul>
                             </div>
                         </div>
@@ -64,33 +68,11 @@
 
             <!-- home page side with food facts container-->
             <div class="col-lg-9" id="foodFacts">
-                <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8; color: white; height: 100vh">
+                <div style="background-color: #DCDCDC; color: black; height: 100%">
                     <div class="container">
-                        <h1 class="text-center" style="color:white;"> Food Facts </h1>
-                    </div>
-                    <br>
-                    <div class="card-deck">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Food Fact #1</h5>
-                                <p class="card-text">Food fact goes here</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Food Fact #2</h5>
-                                <p class="card-text">Food fact goes here</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Food Fact #3</h5>
-                                <p class="card-text">Food fact goes here</p>
-                            </div>
-                        </div>
+                        <h1 class="text-center"> Food Facts </h1>
+                        <br>
+                        <div class="card-deck" id="factContainer">
                     </div>
                 </div>
             </div>
@@ -100,7 +82,9 @@
             <!-- container for product search-->
 
             <div class="col-lg-9 hide" id="productSearch">
+              
                 <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8;; color: white; height: 100vh">
+
                     <div class="container">
                         <h1 class="text-center"> Product Search </h1>
                     </div>
@@ -127,6 +111,7 @@
                                         <label for="">Max Calories</label>
                                         <input type="number" class="form-control" id="maxCalories">
                                     </div>
+
                                     <div class="col">
                                         <label for="">Min Calories</label>
                                         <input type="number" class="form-control" id="minCalories">
@@ -151,7 +136,9 @@
             <!-- container for meal plan-->
 
             <div class="col-lg-9 hide" id="mealPlans">
+
                 <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8;; color: white; height: 100vh">
+
                     <div class="container">
                         <h1 class="text-center"> Meal Plan </h1>
                     </div>
@@ -242,12 +229,13 @@
                                 <button type="button" class="btn btn-dark" id="mealPlanSearchBtn"> Search </button>
                             </form>
                         </div>
-                    </div>
-                    <br>
-                    <div class="container">
-                        <h1 class="text-center"> Meal Plan Results: </h1>
-                        <div id="mealPlanSearchResults">
 
+                        <br>
+                        <div class="container">
+                            <h1 class="text-center"> Meal Plan Results: </h1>
+                            <div id="mealPlanSearchResults">
+                                    Test
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -280,30 +268,22 @@
                         playsinline="true"></video>
                     <canvas class="drawingBuffer"></canvas>
                 </div>
-                <div class="error"></div>
-            </div>
-            <div class="modal-footer">
-                <label class="btn btn-default pull-left">
-                    <i class="fa fa-camera"></i> Use camera app
-                    <input type="file" accept="image/*;capture=camera" capture="camera" class="hidden" />
-                </label>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
-<!--javascrip -->
-<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
-<script src="./scripts/main.js"></script>
-<script src="./scripts/scanner.js"></script>
-<!-- <script src="./scripts/productSearch.js"></script> -->
-<!--linking to mealPlan JS-->
-<script type="text/javascript" src="./scripts/mealPlan.js"></script>
+    <!--javascrip -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script src="./scripts/FoodFacts.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/scanner.js"></script>
+    <!-- <script src="./scripts/productSearch.js"></script> -->
+    <!--linking to mealPlan JS-->
+    <script type="text/javascript" src="./scripts/mealPlan.js"></script>
 
 </body>
 
