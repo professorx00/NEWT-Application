@@ -99,27 +99,37 @@ $(document).ready(function () {
 
 
 
+            }).then(function (promise) {
+
+
+                productIds.forEach(element => {
+                    let productID = element;
+                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyTwo;
+
+
+                    $.get(queryMealInfo, function () { }).then(function (data) {
+
+                        let mealCalories = ("Calories : " + data.nutrition.nutrients[0].amount);
+                        
+                        let mealImage = data.image;
+                        
+
+
+                        
+
+
+
+
+
+
+
+                    });
+
+
+
+                });
+
             });
-        // .then(function (promise) {
-
-        //     mealPlanIds.forEach(element => {
-        //         let productID = element;
-        //         queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true$apiKey=" + apiKeyTwo;
-
-
-        //         $.get(queryMealInfo, function () { }).then(function (data) {
-
-
-
-
-
-        //         });
-
-
-
-        //     });
-
-        // });
 
     };
 
@@ -196,7 +206,7 @@ $(document).ready(function () {
                 mealPlanIds.push(
                     dayOneMealOneId, dayOneMealTwoId, dayOneMealThreeId,
                     dayTwoMealOneId, dayTwoMealTwoId, dayTwoMealThreeId,
-                    dayThreeMealOneId,dayThreeMealTwoId, dayThreeMealThreeId,
+                    dayThreeMealOneId, dayThreeMealTwoId, dayThreeMealThreeId,
                     dayFourMealOneId, dayFourMealTwoId, dayFourMealThreeId,
                     dayFiveMealOneId, dayFiveMealTwoId, dayFiveMealThreeId,
                     daySixMealOneId, daySixMealTwoId, daySixMealThreeId,
