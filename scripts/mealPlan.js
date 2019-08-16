@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    let apiKey = "615df94260a44b4da806def011b2e2c7"
+    let apiKeyOne = "615df94260a44b4da806def011b2e2c7"
     let apiKeyTwo = "8ddc0ae008584fe49220c56590f9c9dc"
     let apiKeyThree = "12227e1c37784d16a21cb569cbe66132"
     let apiKeyFour = "1d8cb4495a8c43ec8d827fc830d2918c"
