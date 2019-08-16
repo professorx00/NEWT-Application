@@ -22,9 +22,6 @@ $(document).ready(function () {
         let excludeArray = [];
         let exclude = $("#exclude").val();
         excludeArray.push(exclude);
-        
-
-        console.log(excludeArray)
 
         let diet = $("#Diet option:selected").text();
         let timeFrame = $("#timeFrame").val();
@@ -107,9 +104,6 @@ $(document).ready(function () {
         let excludeArray = [];
         let exclude = $("#exclude").val();
         excludeArray.push(exclude);
-        
-
-        console.log(excludeArray)
 
         let diet = $("#Diet option:selected").text();
         let timeFrame = $("#timeFrame").val();
