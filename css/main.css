@@ -46,3 +46,15 @@ body{
 *.btn{
     box-shadow: 2px 2px white;
 }
+
+
+@media (max-width: 576px){
+    *.btn{
+        font-size: 4rem;
+    } 
+    #foodFacts{
+        display:flex;
+        flex-direction: column;
+    }
+    
+}
