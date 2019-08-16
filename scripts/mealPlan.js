@@ -32,71 +32,15 @@ $(document).ready(function () {
         })
             .then(function (response) {
 
-
-                let mealsCalories = response.nutrients.calories;
-                let mealsCarbs = response.nutrients.carbohydrates;
-                let mealsFat = response.nutrients.fat;
-                let mealsProtein = response.nutrients.protein;
-
-                let mealChoiceOneTime = response.meals[0].readyInMinutes;
                 let mealChoiceOneId = response.meals[0].id;
-                let mealChoiceOneServings = response.meals[0].servings;
-                let mealChoiceOneTitle = response.meals[0].title;
 
-                let mealChoiceTwoTime = response.meals[1].readyInMinutes;
                 let mealChoiceTwoId = response.meals[1].id;
-                let mealChoiceTwoServings = response.meals[1].servings;
-                let mealChoiceTwoTitle = response.meals[1].title;
 
-                let mealChoiceThreeTime = response.meals[2].readyInMinutes;
                 let mealChoiceThreeId = response.meals[2].id;
-                let mealChoiceThreeServings = response.meals[2].servings;
-                let mealChoiceThreeTitle = response.meals[2].title;
 
                 productIds.push(mealChoiceOneId);
                 productIds.push(mealChoiceTwoId);
                 productIds.push(mealChoiceThreeId);
-
-
-                let mealOneDiv = $("<div>")
-                    .attr("class", "meal")
-                    .append($("<h1>").text("Meal One : " + mealChoiceOneTitle))
-                    .append($("<p>").text("ID : " + mealChoiceOneId))
-                    .append($("<p>").text("Servings : " + mealChoiceOneServings))
-                    .append($("<p>").text("Time : " + mealChoiceOneTime + " minutes"));
-                let mealTwoDiv = $("<div>")
-                    .attr("class", "meal")
-                    .append($("<h1>").text("Meal Two : " + mealChoiceTwoTitle))
-                    .append($("<p>").text("ID : " + mealChoiceTwoId))
-                    .append($("<p>").text("Servings : " + mealChoiceTwoServings))
-                    .append($("<p>").text("Time : " + mealChoiceTwoTime + " minutes"));
-                let mealThreeDiv = $("<div>")
-                    .attr("class", "meal")
-                    .append($("<h1>").text("Meal Three : " + mealChoiceThreeTitle))
-                    .append($("<p>").text("ID : " + mealChoiceOneId))
-                    .append($("<p>").text("Servings : " + mealChoiceOneServings))
-                    .append($("<p>").text("Time : " + mealChoiceOneTime + " minutes"));
-
-                let nutritionDiv = $("<ul>");
-
-                nutritionCalories = $("<li>").text("Total Calories for the Day : " + mealsCalories);
-                nutritionCarbs = $("<li>").text("Total Carbs for the Day : " + mealsCarbs);
-                nutritionFat = $("<li>").text("Total Fat for the Day : " + mealsFat);
-                nutritionProtein = $("<li>").text("Total Carbs for the Day : " + mealsProtein);
-
-                nutritionDiv.append(nutritionCalories, nutritionCarbs, nutritionFat, nutritionProtein);
-
-                mealResults.append(mealOneDiv, mealTwoDiv, mealThreeDiv, nutritionDiv);
-
-
-
-
-
-
-
-
-
-
 
 
             }).then(function (promise) {
@@ -109,19 +53,34 @@ $(document).ready(function () {
 
                     $.get(queryMealInfo, function () { }).then(function (data) {
 
-                        let mealCalories = ("Calories : " + data.nutrition.nutrients[0].amount);
-                        
-                        let mealImage = data.image;
-                        
+                        console.log(data);
 
 
-                        
+                        let mealDiv = $("<div>")
+                            .attr("class", "meal")
+                            .append($("<h1>").text("Meal Name : " + data.title))
+                            .append($("<p>").text("Meal Type : " + data.dishTypes))
+                            .append($("<p>").text("Health Score : " + data.healthScore))
+                            .append($("<p>").text("Diets : " + data.diets))
+                            .append($("<p>").text("Servings : " + data.servings))
+                            .append($("<p>").text("Time : " + data.readyInMinutes + " minutes"))
+                            .append($("<p>").text("Gluten Free : " + data.glutenFree))
+                            .append($("<p>").text("Calories : " + data.nutrition.nutrients[0].amount))
+                            .append($("<p>").text("Fat : " + data.nutrition.nutrients[1].amount))
+                            .append($("<p>").text("Sugar : " + data.nutrition.nutrients[4].amount))
+                            .append($("<p>").text("Protein : " + data.nutrition.nutrients[7].amount));
 
 
+                        mealResults.append(mealDiv);
 
+                        mealResults.append($("<h4>").text("Ingredients : ").addClass("font-weight-bold"));
 
+                        for (i = 0; i < data.nutrition.ingredients.length; i++) {
+                            mealResults.append($("<p>").text(data.nutrition.ingredients[i].name));
 
+                        };
 
+                        mealResults.append($("<p>").text("Instructions : " + data.instructions));
 
                     });
 
