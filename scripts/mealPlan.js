@@ -3,6 +3,7 @@ $(document).ready(function () {
     let apiKey = "615df94260a44b4da806def011b2e2c7"
     let apiKeyTwo = "8ddc0ae008584fe49220c56590f9c9dc"
     let apiKeyThree = "12227e1c37784d16a21cb569cbe66132"
+    let apiKeyFour = "1d8cb4495a8c43ec8d827fc830d2918c"
 
     let productIds = [];
     let mealPlanIds = [];
@@ -23,7 +24,7 @@ $(document).ready(function () {
         let targetCalories = $("#targetCalories").val() || "2000";
         let exclude = $("#exclude").val();
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + exclude + "&apiKey=" + apiKeyThree
+            "&diet=" + diet + "&exclude" + exclude + "&apiKey=" + apiKeyOne
 
 
 
@@ -49,7 +50,7 @@ $(document).ready(function () {
 
                 productIds.forEach(element => {
                     let productID = element;
-                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyThree;
+                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyTwo;
 
 
                     $.get(queryMealInfo, function () { }).then(function (data) {
@@ -157,7 +158,7 @@ $(document).ready(function () {
 
                 mealPlanIds.forEach(element => {
                     let productID = element;
-                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyThree;
+                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyFour;
 
 
                     $.get(queryMealInfo, function () { }).then(function (data) {
