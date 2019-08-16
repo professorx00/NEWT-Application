@@ -10,7 +10,18 @@
   }
 #error{
     color:red;
+    text-shadow: 1px 1px black;
 }
 .hide{
     display: none;
+}
+#forgotPass{
+    color:white;
+    text-shadow: 1px 1px black;
+}
+label, #title{
+    text-shadow: 1px 1px black;
+}
+*.btn, input{
+    box-shadow: 2px 2px black;
 }

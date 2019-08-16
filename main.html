@@ -34,50 +34,45 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3" id="sideNavBar" style="text-align: center">
-                    <div class="jumbotron jumbotron-fluid"
-                        style="background-color: #0798B8; color: white; height: 100vh;">
-                        <div class="container">
-                            <img src="./images/logo.png" alt="logo" class="logo">
-                            <br><br>
+                    <div class="container" style="background-color: #0798B8;">
+                        <img src="./images/logo.png" alt="logo" class="logo">
+                        <br><br>
 
-                            <br>
-                            <h5 id="user"> Username</h5>
-                            <button id="logOut" class="btn btn-dark"> Log out</button>
-                            <br><br><br><br>
-                            <button type="button" class="btn btn-dark btn-lg btn-block" id="mealBtn">Meal Plan</button>
+                        <br>
+                        <h5 id="user"> Username</h5>
+                        <button id="logOut" class="btn btn-dark"> Log out</button>
 
-                            <button type="button" class="btn btn-dark btn-lg btn-block" id="productBtn">Product
-                                Search</button>
+                        <button type="button" class="btn btn-dark btn-lg btn-block" id="mealBtn">Meal Plan</button>
 
-                            <br><br><br><br><br>
-                            <!--Spacers-->
+                        <button type="button" class="btn btn-dark btn-lg btn-block" id="productBtn">Product
+                            Search</button>
 
-                            <div class="card border-dark mb-3 text-center" style="max-width: 180rem;">
-                                <div class="card-header" style="color: black;">Grocery List</div>
-                                <div class="card-body text-dark">
-                                    <ul id="gList" style="list-style-type:none; color: black">
-                                        <!--Grocery Buttons Go Here-->
+                        <div class="card border-dark mb-3 text-center" id="list" style="max-width: 180rem;">
+                            <div class="card-header" style="color: black;"><h3>Grocery List</h3><br>click to remove</div>
 
-                                    </ul>
-                                </div>
+                            <div class="card-body text-dark">
+                                <ul id="gList" style="list-style-type:none; color: black">
+                                    <!--Grocery Buttons Go Here-->
+
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-
                 <!-- home page side with food facts container-->
-                <div class="col-lg-9 hide" id="foodFacts">
-                    <div style="background-color: #DCDCDC; color: black; height: 100%">
-                        <div class="container">
-                            <h1 class="text-center"> Food Facts </h1>
+                <div class="col-lg-9" id="foodFacts">
+                    <div style="background-color: #0798B8; color: black; height: 100%">
+                            <div class="container">
+                            <img src="images/bannerFF.png" alt="Food Facts" id="banner" class="center">
+                        </div>
                             <br>
                             <div class="card-deck" id="factContainer">
                             </div>
                         </div>
                     </div>
-                </div>
+
 
 
 
@@ -85,13 +80,12 @@
 
                 <div class="col-lg-9 hide" id="productSearch">
 
-                    <div class="jumbotron jumbotron-fluid"
-                        style="background-color: #0798B8;; color: white; height: 100vh">
+                    <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8; height: 100vh">
                         <div class="container">
-                            <h1 class="text-center"> Product Search </h1>
+                            <img src="images/bannerPS.png" alt="Product Search" id="banner" class="center">
                         </div>
                         <br>
-                        <div class="card mb-4">
+                        <div class="card mb-4" style="background-color: #E0E0E0;">
                             <div class="card-body">
                                 <form id="productForm">
                                     <div class="row">
@@ -108,7 +102,7 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="row">
+                                    <div class="row" id="calories">
                                         <div class="col">
                                             <label for="">Max Calories</label>
                                             <input type="number" class="form-control" id="maxCalories">
@@ -127,27 +121,30 @@
                         </div>
                         <br>
                         <div class="container">
-                            <h1 class="text-center"> Product Search Results: </h1>
-                            <div id="prodSearchResults">
+                            <div class="container">
+                                <img src="images/bannerPSR.png" alt="Product Search Results" id="banner" class="center">
+                            </div>
+                            <br>
+                            <div class="container" style="width: 100%; background-color: #E0E0E0">
+                                <div id="prodSearchResults">
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
                 <!-- container for meal plan-->
 
                 <div class="col-lg-9 hide" id="mealPlans">
 
-                    <div class="jumbotron jumbotron-fluid"
-                        style="background-color: #0798B8;; color: white; height: 100vh">
+                    <div class="jumbotron jumbotron-fluid" style="background-color: #0798B8; height: 100vh">
 
                         <div class="container">
-                            <h1 class="text-center"> Meal Plan </h1>
+                            <img src="images/bannerMP.png" alt="Meal Plan" id="banner" class="center">
                         </div>
                         <br>
-                        <div class="card mb-4">
+                        <div class="card mb-4" style="background-color: #E0E0E0;">
                             <div class="card-body">
                                 <form>
                                     <div class="form-group">
@@ -232,11 +229,15 @@
                                     </button>
                                 </form>
                             </div>
-                            <br>
+                        </div>
+                        <br>
+
+                        <div class="container">
                             <div class="container">
-                                <h1 class="text-center"> Meal Plan Results: </h1>
+                                <img src="images/bannerMPR.png" alt="Meal Plan Results" id="banner" class="center">
+                            </div>
+                            <div class="container" style="width: 100%; background-color: #E0E0E0">
                                 <div id="mealPlanSearchResults">
-                                    
                                 </div>
                             </div>
                         </div>
