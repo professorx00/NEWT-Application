@@ -52,6 +52,8 @@ productBtn.on("click", e => {
 
 //Product Page on Click Function
 btn.on("click", (e) => {
+    randomAmount = Math.floor(Math.random() * 10) + 4
+    randomOffset = Math.floor(Math.random() * 20) + 5
     results.empty();
     productIds = [];
     console.log("clicked")
@@ -60,33 +62,39 @@ btn.on("click", (e) => {
     minCalories = minCal.val().trim();
     maxCalories = maxCal.val().trim();
 
-    if(minCalories && !maxCalories){
-        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&minCalories=${minCalories}&apiKey=${apiKey}`
+    if (minCalories && !maxCalories) {
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=${randomAmount}&minCalories=${minCalories}&offset=${randomOffset}&apiKey=${apiKey}`
     }
-    else if(!minCalories && maxCalories){
-        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&maxCalories=${maxCalories}&apiKey=${apiKey}`
+    else if (!minCalories && maxCalories) {
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=${randomAmount}&maxCalories=${maxCalories}&offset=${randomOffset}&apiKey=${apiKey}`
     }
-    else if(minCalories && maxCalories){
-        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&maxCalories=${maxCalories}&minCalories=${minCalories}&apiKey=${apiKey}`
+    else if (minCalories && maxCalories) {
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=${randomAmount}&maxCalories=${maxCalories}&minCalories=${minCalories}&offset=${randomOffset}&apiKey=${apiKey}`
     }
-    else{
-        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=2&apiKey=${apiKey}`
+    else {
+        queryProduct = `https://api.spoonacular.com/food/products/search?query=${item}&number=${randomAmount}&offset=${randomOffset}&apiKey=${apiKey}`
     }
 
-    console.log(queryProduct)    
 
 
-    $.get(queryProduct, function () {
-
+    $.ajax({
+        url: queryProduct,
+        method: "GET",
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(errorThrown);
+        }
     }).then(function (apiData) {
-
+        console.log(apiData)
         apiResults = apiData.products
+        if (apiData.totalProducts == 0) {
+            results.append($("<h2>").text("No Results Found"))
+        }
+        else {
+            apiResults.forEach(element => {
+                productIds.push(element.id);
+            });
+        }
 
-        apiResults.forEach(element => {
-            productIds.push(element.id);
-            // productTitles.push(element.title);
-            // console.log(productId)
-        });
     }).then(function (promise) {
 
         productIds.forEach(element => {
@@ -111,7 +119,7 @@ btn.on("click", (e) => {
                 docNewDiv.append(docNutrition)
                 docNewDiv.append(docProductBtn)
                 //append to page
-                results.append(docNewDiv)
+                results.append(docNewDiv, $("<hr>"))
 
                 productData[data.id] = {
                     id: data.id,
@@ -121,10 +129,13 @@ btn.on("click", (e) => {
                     badges: data.badges
                 }
             })
-            
-        })
-    }).then(() => {
 
+            $("#query").val("");
+            $("#maxCalories").val("");
+            $("#minCalories").val("");
+
+
+        })
     })
 });
 //product Page add Click Function
@@ -141,11 +152,11 @@ addClick = function (event) {
 listItemBtn = function (event) {
     console.log("clicked List Item")
     id = $(event.target).attr("data-id")
-    title=$(event.target).attr("data-title")
-    productIds.splice(productIds.indexOf(id),1)
-    productTitles.splice(productTitles.indexOf(title),1)
-    listTitles.splice(listTitles.indexOf(title),1)
-    listIds.splice(listIds.indexOf(id),1)
+    title = $(event.target).attr("data-title")
+    productIds.splice(productIds.indexOf(id), 1)
+    productTitles.splice(productTitles.indexOf(title), 1)
+    listTitles.splice(listTitles.indexOf(title), 1)
+    listIds.splice(listIds.indexOf(id), 1)
     $(`#${id}List`).remove();
 }
 
@@ -156,18 +167,18 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         const user = firebaseUser.email.split("@")[0]
         $("#user").text(firebaseUser.email)
-        firebase.database().ref(`/user/${user}`).once("value",function(snapshot){
+        firebase.database().ref(`/user/${user}`).once("value", function (snapshot) {
             // console.log(snapshot.val().idList, snapshot.val().list)
             ids = JSON.parse(snapshot.val().idList).listIds
             titles = JSON.parse(snapshot.val().titlelist).listTitles
-            for(x=0;x<titles.length;x++){
+            for (x = 0; x < titles.length; x++) {
                 listTitles.push(titles[x])
                 listIds.push(ids[x])
-                createListButton(ids[x],titles[x]);
+                createListButton(ids[x], titles[x]);
             }
 
         })
-        
+
     }
     else {
         console.log("No User Login");
@@ -178,20 +189,29 @@ $("#logOut").on("click", e => {
     clicked = true
     if (clicked) {
         user = $("#user").text().split("@")[0]
-        let list ={listTitles}
-        let idList ={listIds}
-        console.log(idList,list)
-        firebase.database().ref(`/user/${user}`).update({'titlelist':JSON.stringify(list)})
-        firebase.database().ref(`/user/${user}`).update({'idList':JSON.stringify(idList)})
+        let list = { listTitles }
+        let idList = { listIds }
+        console.log(idList, list)
+        firebase.database().ref(`/user/${user}`).update({ 'titlelist': JSON.stringify(list) })
+        firebase.database().ref(`/user/${user}`).update({ 'idList': JSON.stringify(idList) })
         firebase.auth().signOut();
-        window.location.href ="./index.html"
+        window.location.href = "./index.html"
         clicked = false;
-        }
-      });
+    }
+});
 function createListButton(id, title) {
     const newItem = $("<li>").attr("id", `${id}List`).append($("<button>").addClass("btn btn-dark listItem").attr("data-id", id).attr("data-title", title).text(title));
     glist.append(newItem);
 }
+//Page reset: Failed Test
+// window.onbeforeunload = function (event) {
+//     let list = { listTitles }
+//     let idList = { listIds }
+//     firebase.database().ref(`/user/${user}`).update({ 'titlelist': JSON.stringify(list) })
+//     firebase.database().ref(`/user/${user}`).update({ 'idList': JSON.stringify(idList) })
+//     return confirm("Confirm refresh");
+// };
+
 //global Listeners that check for List Button Events
 $(document).on("click", "button.productBtn", addClick);
 $(document).on("click", "button.listItem", listItemBtn);
