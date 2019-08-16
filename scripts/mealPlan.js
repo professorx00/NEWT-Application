@@ -19,12 +19,19 @@ $(document).ready(function () {
 
     function getMealPlanDay() {
 
+        let excludeArray = [];
+        let exclude = $("#exclude").val();
+        excludeArray.push(exclude);
+        
+
+        console.log(excludeArray)
+
         let diet = $("#Diet option:selected").text();
         let timeFrame = $("#timeFrame").val();
         let targetCalories = $("#targetCalories").val() || "2000";
-        let exclude = $("#exclude").val();
+        
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + exclude + "&apiKey=" + apiKeyOne
+            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyFour
 
 
 
@@ -50,7 +57,7 @@ $(document).ready(function () {
 
                 productIds.forEach(element => {
                     let productID = element;
-                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyTwo;
+                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyFour;
 
 
                     $.get(queryMealInfo, function () { }).then(function (data) {
@@ -97,12 +104,19 @@ $(document).ready(function () {
 
     function getMealPlanWeek() {
 
+        let excludeArray = [];
+        let exclude = $("#exclude").val();
+        excludeArray.push(exclude);
+        
+
+        console.log(excludeArray)
+
         let diet = $("#Diet option:selected").text();
         let timeFrame = $("#timeFrame").val();
         let targetCalories = $("#targetCalories").val() || "2000";
-        let exclude = $("#exclude").val();
+    
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + exclude + "&apiKey=" + apiKeyThree;
+            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyFour;
 
 
 
