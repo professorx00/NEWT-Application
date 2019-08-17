@@ -3,7 +3,7 @@ $(document).ready(function () {
     let apiKeyOne = "615df94260a44b4da806def011b2e2c7"
     let apiKeyTwo = "8ddc0ae008584fe49220c56590f9c9dc"
     let apiKeyThree = "12227e1c37784d16a21cb569cbe66132"
-    let apiKeyFour = "1d8cb4495a8c43ec8d827fc830d2918c"
+    let apiKeyFour = "e66363fa94f542ba8a198f8cec2a0b3d"
 
     let productIds = [];
     let mealPlanIds = [];
@@ -110,9 +110,10 @@ $(document).ready(function () {
         let targetCalories = $("#targetCalories").val() || "2000";
     
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyThree;
+            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyFour;
 
-
+        let count=0;
+        let countnext = 0;
 
         $.ajax({
             url: queryURL,
@@ -120,8 +121,6 @@ $(document).ready(function () {
         })
             .then(function (response) {
 
-
-               
                 let dayOneMealOneId = JSON.parse(response.items[0].value).id;
                 let dayOneMealTwoId = JSON.parse(response.items[1].value).id;
                 let dayOneMealThreeId = JSON.parse(response.items[2].value).id;
@@ -160,9 +159,10 @@ $(document).ready(function () {
                     daySevenMealOneId, daySevenMealTwoId, daySevenMealThreeId
                 );
 
+                count++;
+
 
             }).then(function (promise) {
-
 
                 mealPlanIds.forEach(element => {
                     let productID = element;
@@ -203,7 +203,7 @@ $(document).ready(function () {
 
                     });
 
-
+                    countnext++;
 
 
                 });
@@ -228,10 +228,6 @@ $(document).ready(function () {
             resetMealPlan();
 
         }
-
-
-
-
 
     });
 
