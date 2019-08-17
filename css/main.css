@@ -82,9 +82,10 @@ body{
     .foodImg{
         height: 10rem;
     }
-    /* #foodSection{
+    #foodSection{
         width: 100%;
-    } */
+        margin: 0;
+    }
     html{
         font-size: 2rem;
     }
@@ -95,6 +96,7 @@ body{
     }
     #list{
         margin-top: 1rem;
+        
     }
     #calories{
         display:flex;
@@ -103,11 +105,15 @@ body{
     #mealPlanSearchResults h1{
         font-size: 1.5rem !important;
     }
+    #gList{
+        padding:0;
+        text-align: left;
+    }
     
  }
 
 
-@media (max-width: 992px) { 
+/* @media (max-width: 992px) { 
     #logOut{
         margin-bottom: 2rem;
     }
@@ -124,4 +130,4 @@ body{
     #list{
         margin-bottom: 2rem;
     }
- }
+ } */
