@@ -94,8 +94,6 @@ $(document).ready(function () {
     // the barcode had actually been found.
 
     Quagga.onDetected(function (result) {
-        console.log("reached onDetected");
-        // alert(result.codeResult.code);
         if (result.codeResult.code) {
             Quagga.stop();
             lookUpUPC(result.codeResult.code);
@@ -137,15 +135,12 @@ $(document).ready(function () {
                     'color': '#FF0000',
                     'font-weight': '600',
                 })
-                setInterval(()=>{docErrorDiv.remove()}, 5000);
+                setInterval(() => { docErrorDiv.remove() }, 5000);
                 return;
             }
 
-            console.log("A")
             docNewDiv = $("<div>").attr("data-id", packagedProduct.id).append($("<h1>").text(packagedProduct.title)).append($("<p>").text(packagedProduct.ingredientList))
-            console.log("B")
             docNutrition = $("<ul>")
-            console.log(packagedProduct.nutrition.calories)
             docCalories = $("<li>").text(`Calories: ${packagedProduct.nutrition.calories}`)
             docCarbs = $("<li>").text(`Carbs: ${packagedProduct.nutrition.carbs}`)
             docFat = $("<li>").text(`Fat: ${packagedProduct.nutrition.fat}`)
@@ -153,11 +148,8 @@ $(document).ready(function () {
             docProductBtn = $("<button>").addClass("productBtn btn btn-dark").text("Add").attr("data-title", packagedProduct.title).attr("data-id", packagedProduct.id)
 
             docNutrition.append(docCalories, docCarbs, docFat, docProtein)
-            console.log("appended 1")
             docNewDiv.append(docNutrition, docProductBtn);
-            console.log("appended 2");
             results.append(docNewDiv)
-            console.log("appended 3");
 
             productData[packagedProduct.id] = {
                 id: packagedProduct.id,
