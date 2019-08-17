@@ -123,7 +123,7 @@ $(document).ready(function () {
 
         $.get(queryProduct, function () {
 
-        }).then((input) => {
+        }).then(input => {
 
             let packagedProduct = input;
             console.log(packagedProduct);
