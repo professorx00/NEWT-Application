@@ -19,12 +19,16 @@ $(document).ready(function () {
 
     function getMealPlanDay() {
 
+        let excludeArray = [];
+        let exclude = $("#exclude").val();
+        excludeArray.push(exclude);
+
         let diet = $("#Diet option:selected").text();
         let timeFrame = $("#timeFrame").val();
         let targetCalories = $("#targetCalories").val() || "2000";
-        let exclude = $("#exclude").val();
+        
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + exclude + "&apiKey=" + apiKeyOne
+            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyOne
 
 
 
@@ -97,12 +101,16 @@ $(document).ready(function () {
 
     function getMealPlanWeek() {
 
+        let excludeArray = [];
+        let exclude = $("#exclude").val();
+        excludeArray.push(exclude);
+
         let diet = $("#Diet option:selected").text();
         let timeFrame = $("#timeFrame").val();
         let targetCalories = $("#targetCalories").val() || "2000";
-        let exclude = $("#exclude").val();
+    
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + exclude + "&apiKey=" + apiKeyThree;
+            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyThree;
 
 
 
