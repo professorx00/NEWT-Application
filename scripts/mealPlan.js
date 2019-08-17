@@ -28,7 +28,7 @@ $(document).ready(function () {
         let targetCalories = $("#targetCalories").val() || "2000";
         
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyFour
+            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyOne
 
 
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
                 productIds.forEach(element => {
                     let productID = element;
-                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyFour;
+                    queryMealInfo = "https://api.spoonacular.com/recipes/" + productID + "/information?includeNutrition=true&apiKey=" + apiKeyTwo;
 
 
                     $.get(queryMealInfo, function () { }).then(function (data) {
@@ -110,7 +110,7 @@ $(document).ready(function () {
         let targetCalories = $("#targetCalories").val() || "2000";
     
         var queryURL = "https://api.spoonacular.com/recipes/mealplans/generate?" + "timeFrame=" + timeFrame + "&targetCalories=" + targetCalories +
-            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyFour;
+            "&diet=" + diet + "&exclude" + excludeArray + "&apiKey=" + apiKeyThree;
 
 
 
