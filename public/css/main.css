@@ -1,0 +1,133 @@
+*.hide {
+    display: none;
+}
+.foodImg{
+    height: 20rem;
+}
+img.logo {
+    max-width: 500px;
+    width: 100%;
+}
+#productBtn{
+    margin-bottom: 1rem;
+}
+
+canvas.drawingBuffer {
+    display: none;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+#logOut{
+    margin-bottom: 2rem;
+}
+#list{
+    margin-bottom: 2rem;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #0798B8;
+}
+
+.wrapper{
+    background-color: #0798B8;
+
+}
+#factContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2rem;
+}
+
+#foodSection{
+    margin: 1rem;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+  
+*.btn{
+    box-shadow: 2px 2px white;
+}
+
+
+@media (max-width: 576px){
+    html{
+        font-size: 2rem;
+    }
+    #factContainer{
+        margin:0;
+        display:flex;
+        flex-direction: column;
+    }
+    .foodImg{
+        height: 10rem;
+    }
+    #calories{
+        display:flex;
+        flex-direction: column;
+    }
+    #mealPlanSearchResults h1{
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .foodImg{
+        height: 10rem;
+    }
+    #foodSection{
+        width: 100%;
+        margin: 0;
+    }
+    html{
+        font-size: 2rem;
+    }
+    #factContainer{
+        margin:0;
+        display:flex;
+        flex-direction: column;
+    }
+    #list{
+        margin-top: 1rem;
+        
+    }
+    #calories{
+        display:flex;
+        flex-direction: column;
+    }
+    #mealPlanSearchResults h1{
+        font-size: 1.5rem !important;
+    }
+    #gList{
+        padding:0;
+        text-align: left;
+    }
+    
+ }
+
+
+/* @media (max-width: 992px) { 
+    #logOut{
+        margin-bottom: 2rem;
+    }
+    #list{
+        margin-bottom: 2rem;
+    }
+}
+
+
+@media (max-width: 1200px) { 
+    #logOut{
+        margin-bottom: 2rem;
+    }
+    #list{
+        margin-bottom: 2rem;
+    }
+ } */

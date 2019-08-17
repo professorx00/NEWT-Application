@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NEWT Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/Login.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    </head>
+
+<body style="background-color: #0798B8; color:white;">
+    
+    <div class="container vertical-center text-center align-center" id="container">
+        <div class="text-center col-md-12">
+            <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-md-12">
+                <img src="images/logo.png" alt="NEWT Logo" class="img-fluid">
+                <h3 id="title">Login or Create User</h3>
+                <h5 class="hide error" id="error"> </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="loginForm">
+                <form id="userlogin">
+                    <label for="email">Email Address: </label>
+                    <input type="email" id="email"><br>
+                    <label for="password">Password: </label>
+                    <input type="password" id="password">
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary" id="btnSubmit">Log In</button>
+                        <button class="btn btn-secondary" id="createNew">Create Account</button>
+                        <button class="btn btn-warning hide" id="logout">Log Out</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" id="forgotPass">Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 hide" id="passwordRest">
+                <form >
+                    <label for="emailPass">Please enter your email:</label>
+                    <input type="email" id="emailPass">
+                    <button class="btn btn-primary" id="passSend">Send Password Reset Email</button>
+                </form>
+            </div>
+        </div>
+        </div>
+        
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script src="./scripts/loginCode.js" async defer></script>
+</body>
+
+</html>

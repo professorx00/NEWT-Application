@@ -1,0 +1,27 @@
+.container{
+    height: 100%;
+}
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+  }
+#error{
+    color:red;
+    text-shadow: 1px 1px black;
+}
+.hide{
+    display: none;
+}
+#forgotPass{
+    color:white;
+    text-shadow: 1px 1px black;
+}
+label, #title{
+    text-shadow: 1px 1px black;
+}
+*.btn, input{
+    box-shadow: 2px 2px black;
+}

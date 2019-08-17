@@ -166,8 +166,7 @@ listItemBtn = function (event) {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         const user = firebaseUser.email.split("@")[0]
-        console.log(user)
-        $("#user").text(user)
+        $("#user").text(firebaseUser.email)
         firebase.database().ref(`/user/${user}`).once("value", function (snapshot) {
             // console.log(snapshot.val().idList, snapshot.val().list)
             ids = JSON.parse(snapshot.val().idList).listIds
